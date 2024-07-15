@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Robin blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Robin blog">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Robin blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Robin Cheng">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Robin blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Robin blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python-pep8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/12/python-pep8/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T01:57:18.000Z" itemprop="datePublished">2024-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/12/python-pep8/">PEP 8 – Python 程式碼風格指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h1><p>本文檔給出了構成主要 Python 發行版中標準函式庫的 Python 程式碼的編碼約定。請參閱隨附的資訊 PEP，描述<a class="pep reference internal" target="_blank" rel="noopener" href="https://peps.python.org/pep-0007/" title="PEP 7 – Style Guide for C Code">Python 的 C 實作中的 C 程式碼的樣式指南。</a></p>
+<p>本文檔和PEP 257（文檔字串約定）改編自 Guido 的原始 Python 樣式指南文章，並添加了 Barry 的樣式指南[2]中的一些內容。</p>
+<p>隨著時間的推移，隨著附加約定的確定以及過去的約定因語言本身的變化而變得過時，這種風格指南也在不斷發展。</p>
+<p>許多項目都有自己的程式設計風格指南。如果發生任何衝突，則此類特定於專案的指南優先適用於該專案。</p>
+<h1 id="愚蠢的一致性是小頭腦的惡魔"><a href="#愚蠢的一致性是小頭腦的惡魔" class="headerlink" title="愚蠢的一致性是小頭腦的惡魔"></a>愚蠢的一致性是小頭腦的惡魔</h1><p>Guido 的重要見解之一是，程式碼的讀取次數遠多於編寫次數。此處提供的指南旨在提高程式碼的可讀性並使其在各種 Python 程式碼中保持一致。正如PEP 20所說，「可讀性很重要」。</p>
+<p>風格指南是關於一致性的。與本風格指南的一致性很重要。專案內的一致性更為重要。一個模組或功能內的一致性是最重要的。</p>
+<p>然而，知道何時要不一致——有時風格指南的建議並不適用。如有疑問，請運用您的最佳判斷。查看其他範例並決定哪個看起來最好。請隨時詢問！</p>
+<p>特別是：不要僅僅為了遵守此 PEP 而破壞向後相容性！</p>
+<p>忽略特定準則的其他一些充分理由：</p>
+<p>應用指南會降低程式碼的可讀性，即使對於習慣閱讀遵循此 PEP 的程式碼的人也是如此。<br>與周圍也破壞它的程式碼保持一致（可能是出於歷史原因）——儘管這也是清理別人混亂的機會（以真正的 XP 風格）。<br>因為相關程式碼早於指南的引入，並且沒有其他原因需要修改該程式碼。<br>當程式碼需要與不支援樣式指南推薦的功能的舊版 Python 保持相容時。</p>
+<h1 id="程式碼佈局"><a href="#程式碼佈局" class="headerlink" title="程式碼佈局"></a>程式碼佈局</h1><h2 id="縮排"><a href="#縮排" class="headerlink" title="縮排"></a>縮排</h2><p>每個縮排等級使用 4 個空格。</p>
+<p>連續行應該使用 Python 的隱式行連接在圓括號、方括號和大括號內垂直對齊包裹的元素，或使用懸掛縮排 [1]。使用懸掛縮排時應考慮以下事項：第一行不應該有參數，並且應該使用進一步的縮進來清楚地將其自身區分為連續行：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"></span><br><span class="line"># Aligned with opening delimiter.</span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">                         var_three, var_four)</span><br><span class="line"></span><br><span class="line"># Add <span class="number">4</span> spaces (an extra level of indentation) to distinguish arguments from the rest.</span><br><span class="line">def long_function_name(</span><br><span class="line">        var_one, var_two, var_three,</span><br><span class="line">        var_four):</span><br><span class="line">    print(var_one)</span><br><span class="line"></span><br><span class="line"># Hanging indents should add a level.</span><br><span class="line">foo = long_function_name(</span><br><span class="line">    var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line"></span><br><span class="line"># Arguments on first line forbidden when not using vertical alignment.</span><br><span class="line">foo = long_function_name(var_one, var_two,</span><br><span class="line">    var_three, var_four)</span><br><span class="line"></span><br><span class="line"># Further indentation required as indentation is not distinguishable.</span><br><span class="line">def long_function_name(</span><br><span class="line">    var_one, var_two, var_three,</span><br><span class="line">    var_four):</span><br><span class="line">    print(var_one)</span><br><span class="line">```    </span><br><span class="line">對於連續行，<span class="number">4</span> 空格規則是可選的。</span><br><span class="line"></span><br><span class="line">選修的：</span><br><span class="line">```c</span><br><span class="line"># Hanging indents *may* be indented to other than <span class="number">4</span> spaces.</span><br><span class="line">foo = long_function_name(</span><br><span class="line">  var_one, var_two,</span><br><span class="line">  var_three, var_four)</span><br><span class="line">```  </span><br><span class="line">當 - 語句的條件部分<span class="keyword">if</span>足夠長，需要跨多行編寫時，值得注意的是，兩個字元關鍵字（即<span class="keyword">if</span>）、單個空格和左括號的組合會創建一個自然的 <span class="number">4</span>-多行條件語句後續行的空格縮排。這可能會與嵌套在 - 語句內的縮排程式碼套件產生視覺衝突<span class="keyword">if</span>，該程式碼套件自然也會縮排 <span class="number">4</span> 個空格。對於如何（或是否）進一步在視覺上將這些條件行與<span class="keyword">if</span>- 語句內的嵌套套件區分開來，此 PEP 沒有採取明確的立場。在這種情況下可接受的選擇包括但不限於：</span><br><span class="line">```c</span><br><span class="line"># No extra indentation.</span><br><span class="line"><span class="keyword">if</span> (this_is_one_thing and</span><br><span class="line">    that_is_another_thing):</span><br><span class="line">    do_something()</span><br><span class="line"></span><br><span class="line"># Add a comment, which will provide some distinction in editors</span><br><span class="line"><span class="meta"># supporting syntax highlighting.</span></span><br><span class="line"><span class="keyword">if</span> (this_is_one_thing and</span><br><span class="line">    that_is_another_thing):</span><br><span class="line">    # Since both conditions are <span class="literal">true</span>, we can frobnicate.</span><br><span class="line">    do_something()</span><br><span class="line"></span><br><span class="line"># Add some extra indentation on the conditional continuation line.</span><br><span class="line"><span class="keyword">if</span> (this_is_one_thing</span><br><span class="line">        and that_is_another_thing):</span><br><span class="line">    do_something()</span><br><span class="line">```    </span><br><span class="line">（另請參閱下面關於是否在二元運算子之前或之後中斷的討論。）</span><br><span class="line"></span><br><span class="line">多行結構上的右大括號/方括號/圓括號可以排列在列表最後一行的第一個非空白字元下，如下所示：</span><br><span class="line">```c</span><br><span class="line">my_list = [</span><br><span class="line">    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">    ]</span><br><span class="line">result = some_function_that_takes_arguments(</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;f&#x27;</span>,</span><br><span class="line">    )</span><br><span class="line">```    </span><br><span class="line">或者它可以排列在開始多行結構的行的第一個字元下，如下所示：</span><br><span class="line">```c</span><br><span class="line">my_list = [</span><br><span class="line">    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">]</span><br><span class="line">result = some_function_that_takes_arguments(</span><br><span class="line">    <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;f&#x27;</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="製表符還是空格？"><a href="#製表符還是空格？" class="headerlink" title="製表符還是空格？"></a>製表符還是空格？</h2><p>空格是首選的縮排方法。</p>
+<p>製表符應僅用於與已使用製表符縮排的代碼保持一致。</p>
+<p>Python 不允許混合製表符和空格進行縮排。</p>
+<h2 id="最大線路長度"><a href="#最大線路長度" class="headerlink" title="最大線路長度"></a>最大線路長度</h2><p>將所有行限制為最多 79 個字元。</p>
+<p>對於結構限制較少（文件字串或註解）的流動長文字區塊，行長度應限制為 72 個字元。</p>
+<p>限制所需的編輯器視窗寬度可以並排開啟多個文件，並且在使用在相鄰列中顯示兩個版本的程式碼審查工具時效果很好。</p>
+<p>大多數工具中的預設包裝會破壞程式碼的視覺結構，使其更難以理解。選擇這些限制是為了避免在視窗寬度設定為 80 的編輯器中進行換行，即使工具在換行時在最後一列中放置了標記符號。一些基於網路的工具可能根本不提供動態換行。</p>
+<p>有些團隊強烈喜歡更長的線路。對於專門或主要由可以就此問題達成一致的團隊維護的代碼，可以將行長度限制增加到 99 個字符，前提是註釋和文檔字符串仍以 72 個字符換行。</p>
+<p>Python 標準函式庫比較保守，要求將行數限制為 79 個字元（文件字串&#x2F;註解限制為 72 個）。</p>
+<p>換行長行的首選方法是在圓括號、方括號和大括號內使用 Python 的隱式續行。將表達式括在括號中，可以將長行分成多行。應優先使用這些內容而不是使用反斜線來繼續行。</p>
+<p>反斜線有時仍然是合適的。例如，with在 Python 3.10 之前，長的多語句不能使用隱式延續，因此在這種情況下反斜線是可以接受的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">with <span class="title function_">open</span><span class="params">(<span class="string">&#x27;/path/to/some/file/you/want/to/read&#x27;</span>)</span> as file_1, \</span><br><span class="line">     <span class="title function_">open</span><span class="params">(<span class="string">&#x27;/path/to/some/file/being/written&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span> as file_2:</span><br><span class="line">    file_2.<span class="title function_">write</span><span class="params">(file_1.read())</span></span><br></pre></td></tr></table></figure>
+<p>（有關多行 if語句縮排的進一步思考，請參閱前面關於多行 if 語句的討論with。）</p>
+<p>另一個這樣的情況是assert語句。</p>
+<p>確保適當縮排續行。</p>
+<h2 id="應該在二元運算子之前還是之後換行？"><a href="#應該在二元運算子之前還是之後換行？" class="headerlink" title="應該在二元運算子之前還是之後換行？"></a>應該在二元運算子之前還是之後換行？</h2><p>幾十年來，推薦的風格是在二元運算子之後中斷。但這會以兩種方式損害可讀性：運算符往往會分散在螢幕上的不同列中，並且每個運算符都會從其運算元移到上一行。在這裡，眼睛必須做額外的工作來分辨哪些項目被添加，哪些項目被減去：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line"><span class="meta"># operators sit far away from their operands</span></span><br><span class="line">income = (gross_wages +</span><br><span class="line">          taxable_interest +</span><br><span class="line">          (dividends - qualified_dividends) -</span><br><span class="line">          ira_deduction -</span><br><span class="line">          student_loan_interest)</span><br></pre></td></tr></table></figure>
+<p>為了解決這個可讀性問題，數學家和他們的出版商遵循相反的慣例。 Donald Knuth 在他的電腦和排版系列中解釋了傳統規則：「雖然段落中的公式總是在二元運算和關係之後中斷，但顯示的公式總是在二元運算之前中斷」[3]。</p>
+<p>遵循數學傳統通常會產生更具可讀性的程式碼：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"><span class="meta"># easy to match operators with operands</span></span><br><span class="line">income = (gross_wages</span><br><span class="line">          + taxable_interest</span><br><span class="line">          + (dividends - qualified_dividends)</span><br><span class="line">          - ira_deduction</span><br><span class="line">          - student_loan_interest)</span><br></pre></td></tr></table></figure>
+<p>在 Python 程式碼中，只要約定在本地一致，就允許在二元運算子之前或之後中斷。對於新程式碼，建議採用 Knuth 風格。</p>
+<h2 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h2><p>用兩個空白行包圍頂層函數和類別定義。</p>
+<p>類別內的方法定義由一個空白行包圍。</p>
+<p>可以（謹慎地）使用額外的空白行來分隔相關函數組。在一堆相關的單行程式碼（例如一組虛擬實作）之間可以省略空白行。</p>
+<p>在函數中謹慎使用空白行來指示邏輯部分。</p>
+<p>Python 接受 control-L（即 ^L）換頁符號作為空格；許多工具將這些字元視為頁面分隔符，因此您可以使用它們來分隔文件的相關部分的頁面。請注意，某些編輯器和基於 Web 的程式碼檢視器可能無法將 control-L 識別為換頁符，並會在其位置顯示另一個字形。</p>
+<h2 id="原始檔編碼"><a href="#原始檔編碼" class="headerlink" title="原始檔編碼"></a>原始檔編碼</h2><p>核心 Python 發行版中的程式碼應始終使用 UTF-8，且不應具有編碼聲明。</p>
+<p>在標準庫中，非 UTF-8 編碼只能用於測試目的。謹慎使用非 ASCII 字符，最好僅用於表示地點和人名。如果使用非 ASCII 字元作為數據，請避免使用雜訊的 Unicode 字符，例如 z̯̯͡a̧͎̺l̡͓̫g̹̲o̡̼̘ 和位元組順序標記。</p>
+<p>Python 標準庫中的所有標識符必須使用純 ASCII 標識符，並且應盡可能使用英語單字（在許多情況下，使用非英語的縮寫和技術術語）。</p>
+<p>鼓勵擁有全球受眾的開源專案採取類似的政策。</p>
+<h2 id="進口"><a href="#進口" class="headerlink" title="進口"></a>進口</h2><ul>
+<li>導入通常應該在單獨的行上：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">import os</span><br><span class="line">import sys</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line">import sys, os</span><br></pre></td></tr></table></figure>
+不過這樣說也沒關係：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">from subprocess import Popen, PIPE</span><br></pre></td></tr></table></figure></li>
+<li>導入始終放在文件的頂部，緊接在任何模組註解和文件字串之後，以及模組全域變數和常數之前。<br>導入應依下列順序分組：</li>
+</ul>
+<ol>
+<li>標準庫導入。</li>
+<li>相關第三方進口。</li>
+<li>本機應用程式&#x2F;庫特定的導入。<br>您應該在每組匯入之間放置一個空白行。</li>
+</ol>
+<ul>
+<li>建議絕對導入，因為如果導入系統配置不正確（例如當包內的目錄以 結尾時sys.path），它們通常更具可讀性並且往往表現更好（或至少給出更好的錯誤訊息）：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import mypkg.sibling</span><br><span class="line">from mypkg import sibling</span><br><span class="line">from mypkg.sibling import example</span><br></pre></td></tr></table></figure>
+然而，明確相對導入是絕對導入的可接受替代方案，特別是在處理複雜的套件佈局時，使用絕對導入會不必要地冗長：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from . import sibling</span><br><span class="line">from .sibling import example</span><br></pre></td></tr></table></figure>
+標準庫程式碼應避免複雜的套件佈局並始終使用絕對導入。</li>
+</ul>
+<p>當從包含類別的模組匯入類別時，通常可以這樣拼寫：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from myclass import MyClass</span><br><span class="line">from foo.bar.yourclass import YourClass</span><br></pre></td></tr></table></figure>
+<p>如果這種拼字導致本地名稱衝突，請明確拼寫它們：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import myclass</span><br><span class="line">import foo.bar.yourclass</span><br></pre></td></tr></table></figure>
+<p>並使用<code>myclass.MyClass</code>和<code>foo.bar.yourclass.YourClass</code>。</p>
+<ul>
+<li>應避免通配符導入 ( )，因為它們使命名空間中存在哪些名稱變得不清楚，從而使讀者和許多自動化工具感到困惑。通配符導入有一個合理的用例，即重新發佈內部介面作為公共 API 的一部分（例如，使用可選加速器模組中的定義覆蓋介面的純 Python 實現，以及哪些定義將被覆蓋）提前不知道被覆蓋）。<code>from &lt;module&gt; import *</code><br>以這種方式重新發布名稱時，以下有關公共和內部介面的準則仍然適用。</li>
+</ul>
+<h2 id="模組等級-Dunder-名稱"><a href="#模組等級-Dunder-名稱" class="headerlink" title="模組等級 Dunder 名稱"></a>模組等級 Dunder 名稱</h2><p>模組級「dunders」（即帶有兩個前導和兩個尾隨下劃線的名稱），例如__all__、__author__、__version__等應放置在模組文件字串之後，但在除 導入之外的任何導入語句之前。 Python 要求 future-imports 必須出現在模組中除文檔字串之外的任何其他程式碼之前：from <strong>future</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span><span class="string">&quot;This is the example module.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">This module does stuff.</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">from __future__ import barry_as_FLUFL</span><br><span class="line"></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">__version__ = <span class="string">&#x27;0.1&#x27;</span></span><br><span class="line">__author__ = <span class="string">&#x27;Cardinal Biggles&#x27;</span></span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">import sys</span><br></pre></td></tr></table></figure>
+
+<h1 id="字串引號"><a href="#字串引號" class="headerlink" title="字串引號"></a>字串引號</h1><p>在Python中，單引號字串和雙引號字串是相同的。本 PEP 並未對此提出建議。選擇一個規則並遵守它。但是，當字串包含單引號或雙引號字元時，請使用另一個以避免字串中出現反斜線。它提高了可讀性。</p>
+<p>對於三引號字串，請始終使用雙引號字符，以與PEP 257中的文件字串約定保持一致。</p>
+<h1 id="表達式和語句中的空格"><a href="#表達式和語句中的空格" class="headerlink" title="表達式和語句中的空格"></a>表達式和語句中的空格</h1><h2 id="討厭的事"><a href="#討厭的事" class="headerlink" title="討厭的事"></a>討厭的事</h2><p>在以下情況下避免使用多餘的空格：</p>
+<ul>
+<li>緊鄰圓括號、方括號或大括號內：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">spam(ham[<span class="number">1</span>], &#123;eggs: <span class="number">2</span>&#125;)</span><br><span class="line"># Wrong:</span><br><span class="line">spam( ham[ <span class="number">1</span> ], &#123; eggs: <span class="number">2</span> &#125; )</span><br></pre></td></tr></table></figure></li>
+<li>在尾隨逗號和後面的右括號之間：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">foo = (<span class="number">0</span>,)</span><br><span class="line"># Wrong:</span><br><span class="line">bar = (<span class="number">0</span>, )</span><br></pre></td></tr></table></figure></li>
+<li>緊接在逗號、分號或冒號之前：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"><span class="keyword">if</span> x == <span class="number">4</span>: print(x, y); x, y = y, x</span><br><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> x == <span class="number">4</span> : print(x , y) ; x , y = y , x</span><br></pre></td></tr></table></figure></li>
+<li>但是，在切片中，冒號的作用類似於二元運算符，並且兩側應具有相同的數量（將其視為優先順序最低的運算符）。在擴展切片中，兩個冒號必須施加相同的間距。例外：當省略切片參數時，空格也被省略：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">ham[<span class="number">1</span>:<span class="number">9</span>], ham[<span class="number">1</span>:<span class="number">9</span>:<span class="number">3</span>], ham[:<span class="number">9</span>:<span class="number">3</span>], ham[<span class="number">1</span>::<span class="number">3</span>], ham[<span class="number">1</span>:<span class="number">9</span>:]</span><br><span class="line">ham[lower:upper], ham[lower:upper:], ham[lower::step]</span><br><span class="line">ham[lower+offset : upper+offset]</span><br><span class="line">ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]</span><br><span class="line">ham[lower + offset : upper + offset]</span><br><span class="line"># Wrong:</span><br><span class="line">ham[lower + offset:upper + offset]</span><br><span class="line">ham[<span class="number">1</span>: <span class="number">9</span>], ham[<span class="number">1</span> :<span class="number">9</span>], ham[<span class="number">1</span>:<span class="number">9</span> :<span class="number">3</span>]</span><br><span class="line">ham[lower : : step]</span><br><span class="line">ham[ : upper]</span><br></pre></td></tr></table></figure></li>
+<li>緊接在開始函數呼叫的參數列表的左括號之前：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">spam(<span class="number">1</span>)</span><br><span class="line"># Wrong:</span><br><span class="line">spam (<span class="number">1</span>)</span><br></pre></td></tr></table></figure></li>
+<li>緊接在開始索引或切片的左括號之前：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">dct[<span class="string">&#x27;key&#x27;</span>] = lst[index]</span><br><span class="line"># Wrong:</span><br><span class="line">dct [<span class="string">&#x27;key&#x27;</span>] = lst [index]</span><br></pre></td></tr></table></figure></li>
+<li>賦值（或其他）運算子周圍有多個空格以將其與另一個運算子對齊：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">x = <span class="number">1</span></span><br><span class="line">y = <span class="number">2</span></span><br><span class="line">long_variable = <span class="number">3</span></span><br><span class="line"># Wrong:</span><br><span class="line">x             = <span class="number">1</span></span><br><span class="line">y             = <span class="number">2</span></span><br><span class="line">long_variable = <span class="number">3</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="其他建議"><a href="#其他建議" class="headerlink" title="其他建議"></a>其他建議</h2><ul>
+<li>避免在任何地方出現尾隨空格。因為它通常是不可見的，所以可能會令人困惑：例如，反斜線後跟空格和換行符不算是行繼續標記。一些編輯器不保留它，並且許多項目（例如 CPython 本身）都有拒絕它的預提交掛鉤。<br>總是在這些二元運算子兩側加上一個空格：賦值 ( <code>=</code>)、擴展賦值（<code>+=</code>等<code>-=</code> ）、比較（<code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>&lt;=</code>, , <code>&gt;=</code>, <code>in</code>, , ），布林值（, , ）。<code>not inisis notandorno</code>t</li>
+<li>如果使用具有不同優先權的運算符，請考慮在優先權最低的運算子周圍新增空格。使用你自己的判斷；但是，切勿使用多個空格，且二元運算子兩側始終具有相同數量的空格：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">i = i + <span class="number">1</span></span><br><span class="line">submitted += <span class="number">1</span></span><br><span class="line">x = x*<span class="number">2</span> - <span class="number">1</span></span><br><span class="line">hypot2 = x*x + y*y</span><br><span class="line">c = (a+b) * (a-b)</span><br><span class="line"># Wrong:</span><br><span class="line">i=i+<span class="number">1</span></span><br><span class="line">submitted +=<span class="number">1</span></span><br><span class="line">x = x * <span class="number">2</span> - <span class="number">1</span></span><br><span class="line">hypot2 = x * x + y * y</span><br><span class="line">c = (a + b) * (a - b)</span><br></pre></td></tr></table></figure></li>
+<li>函數註釋應使用冒號的正常規則，並且-&gt;箭頭周圍始終有空格（如果存在）。 （有關函數註釋的更多信息，請參閱 下面的函數註釋。）：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">def <span class="title function_">munge</span><span class="params">(input: AnyStr)</span>: ...</span><br><span class="line">def <span class="title function_">munge</span><span class="params">()</span> -&gt; PosInt: ...</span><br><span class="line"># Wrong:</span><br><span class="line">def <span class="title function_">munge</span><span class="params">(input:AnyStr)</span>: ...</span><br><span class="line">def <span class="title function_">munge</span><span class="params">()</span>-&gt;PosInt: ...</span><br></pre></td></tr></table></figure></li>
+<li><code>=</code>當用於指示關鍵字參數或用於指示 未註釋的函數參數的預設值時，請勿在符號周圍使用空格：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">def <span class="title function_">complex</span><span class="params">(real, imag=<span class="number">0.0</span>)</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">magic</span><span class="params">(r=real, i=imag)</span></span><br><span class="line"># Wrong:</span><br><span class="line">def <span class="title function_">complex</span><span class="params">(real, imag = <span class="number">0.0</span>)</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">magic</span><span class="params">(r = real, i = imag)</span></span><br></pre></td></tr></table></figure>
+但是，當將參數註釋與預設值組合時，請在&#x3D;符號周圍使用空格：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">def <span class="title function_">munge</span><span class="params">(sep: AnyStr = None)</span>: ...</span><br><span class="line">def <span class="title function_">munge</span><span class="params">(input: AnyStr, sep: AnyStr = None, limit=<span class="number">1000</span>)</span>: ...</span><br><span class="line"># Wrong:</span><br><span class="line">def <span class="title function_">munge</span><span class="params">(input: AnyStr=None)</span>: ...</span><br><span class="line">def <span class="title function_">munge</span><span class="params">(input: AnyStr, limit = <span class="number">1000</span>)</span>: ...</span><br></pre></td></tr></table></figure></li>
+<li>通常不鼓勵複合語句（同一行上的多個語句）：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"><span class="keyword">if</span> foo == <span class="string">&#x27;blah&#x27;</span>:</span><br><span class="line">    do_blah_thing()</span><br><span class="line">do_one()</span><br><span class="line">do_two()</span><br><span class="line">do_three()</span><br></pre></td></tr></table></figure>
+而不是：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> foo == <span class="string">&#x27;blah&#x27;</span>: do_blah_thing()</span><br><span class="line">do_one(); do_two(); do_three()</span><br></pre></td></tr></table></figure></li>
+<li>雖然有時可以將 if&#x2F;for&#x2F;while 與一個小主體放在同一行，但切勿對多子句語句這樣做。還要避免折疊這麼長的線！<br>而不是：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> foo == <span class="string">&#x27;blah&#x27;</span>: do_blah_thing()</span><br><span class="line"><span class="keyword">for</span> x in lst: total += x</span><br><span class="line"><span class="keyword">while</span> t &lt; <span class="number">10</span>: t = delay()</span><br></pre></td></tr></table></figure>
+當然不：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> foo == <span class="string">&#x27;blah&#x27;</span>: do_blah_thing()</span><br><span class="line"><span class="keyword">else</span>: do_non_blah_thing()</span><br><span class="line"></span><br><span class="line">try: something()</span><br><span class="line">finally: cleanup()</span><br><span class="line"></span><br><span class="line">do_one(); do_two(); do_three(<span class="type">long</span>, argument,</span><br><span class="line">                             <span class="built_in">list</span>, like, this)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> foo == <span class="string">&#x27;blah&#x27;</span>: one(); two(); three()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="何時使用尾隨逗號"><a href="#何時使用尾隨逗號" class="headerlink" title="何時使用尾隨逗號"></a>何時使用尾隨逗號</h1><p>尾隨逗號通常是可選的，但在創建一個元素的元組時它們是強制性的。為了清楚起見，建議將後者括在（技術上多餘的）括號中：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">FILES = (<span class="string">&#x27;setup.cfg&#x27;</span>,)</span><br><span class="line"># Wrong:</span><br><span class="line">FILES = <span class="string">&#x27;setup.cfg&#x27;</span>,</span><br></pre></td></tr></table></figure>
+<p>當尾隨逗號是多餘的時，當使用版本控制系統時，當值、參數或導入項目的清單預計會隨著時間的推移而擴展時，它們通常很有用。此模式是將每個值（等）單獨放在一行上，始終添加尾隨逗號，並在下一行添加右括號&#x2F;方括號&#x2F;大括號。然而，在與結束分隔符號相同的行上使用尾隨逗號是沒有意義的（除了上述單例元組的情況）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">FILES = [</span><br><span class="line">    <span class="string">&#x27;setup.cfg&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;tox.ini&#x27;</span>,</span><br><span class="line">    ]</span><br><span class="line">initialize(FILES,</span><br><span class="line">           error=True,</span><br><span class="line">           )</span><br><span class="line"># Wrong:</span><br><span class="line">FILES = [<span class="string">&#x27;setup.cfg&#x27;</span>, <span class="string">&#x27;tox.ini&#x27;</span>,]</span><br><span class="line">initialize(FILES, error=True,)</span><br></pre></td></tr></table></figure>
+
+<h1 id="評論"><a href="#評論" class="headerlink" title="評論"></a>評論</h1><p>與程式碼相矛盾的註解比沒有註解更糟糕。當程式碼更改時，始終優先考慮使註釋保持最新！</p>
+<p>註釋應該是完整的句子。第一個單字應大寫，除非它是以小寫字母開頭的識別符（切勿更改標識符的大小寫！）。</p>
+<p>區塊註釋通常由一個或多個由完整句子組成的段落組成，每個句子以句號結尾。</p>
+<p>在多句註釋中，除了最後一句之外，您應該在句末句號後面使用一兩個空格。</p>
+<p>確保您的評論對於使用您所寫語言的其他使用者來說清晰且易於理解。</p>
+<p>來自非英語國家的 Python 程式設計師：請用英語寫下您的註釋，除非您 120% 確定程式碼永遠不會被不會說您的語言的人閱讀。</p>
+<h2 id="阻止評論"><a href="#阻止評論" class="headerlink" title="阻止評論"></a>阻止評論</h2><p>區塊註解通常適用於其後面的部分（或全部）程式碼，並且縮排到與該程式碼相同的層級。區塊註解的每一行都以 和#一個空格開頭（除非它是註解內的縮排文字）。</p>
+<p>塊註釋內的段落由包含單一#.</p>
+<h2 id="內嵌評論"><a href="#內嵌評論" class="headerlink" title="內嵌評論"></a>內嵌評論</h2><p>謹慎使用內聯註釋。</p>
+<p>內嵌註解是與語句位於同一行的註解。內嵌註釋與語句之間應至少以兩個空格分隔。它們應該以 # 和一個空格開頭。</p>
+<p>內嵌註釋是不必要的，而且如果它們陳述了顯而易見的內容，實際上會分散注意力。不要這樣做：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x + <span class="number">1</span>                 # Increment x</span><br></pre></td></tr></table></figure>
+<p>但有時，這很有用：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x + <span class="number">1</span>                 # Compensate <span class="keyword">for</span> border</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件字串"><a href="#文件字串" class="headerlink" title="文件字串"></a>文件字串</h2><p>編寫良好文檔字串（又稱「文檔字串」）的約定在PEP 257中永垂不朽。</p>
+<p>為所有公共模組、函數、類別和方法編寫文件字串。對於非公共方法來說，文檔字串不是必需的，但您應該有一條註釋來描述該方法的用途。此註解應出現在該def行之後。<br>PEP 257描述了良好的文件字串約定。請注意，最重要的是，”””結束多行文件字串的 應該單獨佔一行：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span><span class="string">&quot;Return a foobang</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Optional plotz says to frobnicate the bizbaz first.</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>對於單行文檔字串，請將結尾保持”””在同一行：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span><span class="string">&quot;Return an ex-parrot.&quot;</span><span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="命名約定"><a href="#命名約定" class="headerlink" title="命名約定"></a>命名約定</h1><p>Python 函式庫的命名約定有點混亂，因此我們永遠無法使其完全一致——儘管如此，以下是目前推薦的命名標準。新的模組和套件（包括第三方框架）應按照這些標準編寫，但如果現有庫具有不同的風格，則首選內部一致性。</p>
+<h2 id="壓倒一切的原則"><a href="#壓倒一切的原則" class="headerlink" title="壓倒一切的原則"></a>壓倒一切的原則</h2><p>作為 API 公共部分對使用者可見的名稱應遵循反映用法而不是實現的約定。</p>
+<h2 id="描述性：命名風格"><a href="#描述性：命名風格" class="headerlink" title="描述性：命名風格"></a>描述性：命名風格</h2><p>有很多不同的命名風格。它有助於識別正在使用的命名樣式，而與它們的用途無關。</p>
+<p>通常區分以下命名風格：</p>
+<ul>
+<li><p><code>b</code>（單個小寫字母）</p>
+</li>
+<li><p><code>B</code>（單一大寫字母）</p>
+</li>
+<li><p><code>lowercase</code></p>
+</li>
+<li><p><code>lower_case_with_underscores</code></p>
+</li>
+<li><p><code>UPPERCASE</code></p>
+</li>
+<li><p><code>UPPER_CASE_WITH_UNDERSCORES</code></p>
+</li>
+<li><p><code>CapitalizedWords</code>（或 CapWords，或 CamelCase——如此命名是因為它的字母看起來凹凸不平[4]）。有時也稱為 StudlyCaps。<br>注意：在 CapWords 中使用縮寫時，請將縮寫的所有字母大寫。因此 HTTPServerError 比 HttpServerError 更好。</p>
+</li>
+<li><p><code>mixedCase</code>（與 CatalizedWords 的區別在於首字母小寫字元！）</p>
+</li>
+<li><p><code>Capitalized_Words_With_Underscores</code>（醜的！）<br>還有一種使用簡短的唯一前綴將相關名稱分組在一起的風格。這在 Python 中用得不多，但為了完整性還是提到了。例如，該<code>os.stat()</code>函數傳回一個元組，其項目傳統上具有諸如<code>st_mode</code>、 <code>st_size</code>等名稱<code>st_mtime</code>。 （這樣做是為了強調與 POSIX 系統調用結構體字段的對應關係，這有助於程式設計師熟悉這一點。）</p>
+</li>
+</ul>
+<p>X11 函式庫在其所有公用函數中使用前導 X。在Python中，這種風格通常被認為是不必要的，因為屬性和方法名稱以物件為前綴，函數名稱以模組名稱為前綴。</p>
+<p>此外，還可以識別以下使用前導或尾隨下劃線的特殊形式（這些形式通常可以與任何大小寫約定結合使用）：</p>
+<ul>
+<li><code>_single_leading_underscore</code>：「內部使用」指標較弱。例如，不匯入名稱以下劃線開頭的物件。<code>from M import *</code></li>
+<li><code>single_trailing_underscore_</code>：按慣例使用以避免與Python關鍵字衝突，例如：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tkinter.Toplevel(master, class_=<span class="string">&#x27;ClassName&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><code>__double_leading_underscore</code>：命名類別屬性時，呼叫名稱修改（在類別 FooBar 中，<code>__boo</code>變成 <code>_FooBar__boo</code>；見下文）。</li>
+<li><code>__double_leading_and_trailing_underscore__</code>：存在於使用者控制的命名空間中的「神奇」物件或屬性。例如<code>__init__</code>，<code>__import__</code>或<code>__file__</code>。永遠不要發明這樣的名字；僅按照記錄使用它們。</li>
+</ul>
+<h2 id="規定性：命名約定"><a href="#規定性：命名約定" class="headerlink" title="規定性：命名約定"></a>規定性：命名約定</h2><h3 id="應避免使用的名字"><a href="#應避免使用的名字" class="headerlink" title="應避免使用的名字"></a>應避免使用的名字</h3><p>切勿使用字元“l”（小寫字母 el）、“O”（大寫字母 oh）或“I”（大寫字母 eye）作為單字元變數名稱。</p>
+<p>在某些字體中，這些字元與數字 1 和 0 無法區分。想要使用“l”時，請改用“L”。</p>
+<h3 id="ASCII-相容性"><a href="#ASCII-相容性" class="headerlink" title="ASCII 相容性"></a>ASCII 相容性</h3><p>標準庫中使用的標識符必須與 ASCII 相容，如 PEP 3131 的策略部分所述。</p>
+<h3 id="套件和模組名稱"><a href="#套件和模組名稱" class="headerlink" title="套件和模組名稱"></a>套件和模組名稱</h3><p>模組應該有短的、全小寫的名稱。如果可以提高可讀性，可以在模組名稱中使用下劃線。 Python 套件也應該有短的、全小寫的名稱，儘管不鼓勵使用底線。</p>
+<p>當用 C 或 C++ 編寫的擴充模組具有提供更高層級（例如更物件導向）介面的隨附 Python 模組時，C&#x2F;C++ 模組具有前導下劃線（例如<code>_socket</code>）。</p>
+<h3 id="類別名"><a href="#類別名" class="headerlink" title="類別名"></a>類別名</h3><p>類別名稱通常應使用 CapWords 約定。</p>
+<p>在介面被記錄並主要用作可呼叫的情況下，可以使用函數的命名約定。</p>
+<p>請注意，內建名稱有一個單獨的約定：大多數內建名稱是單字（或兩個單字一起運行），CapWords 約定僅用於異常名稱和內建常數。</p>
+<h3 id="類型變數名稱"><a href="#類型變數名稱" class="headerlink" title="類型變數名稱"></a>類型變數名稱</h3><p>PEP 484中引入的類型變數的名稱通常應使用大寫字母，優先使用短名稱：<code>T</code>, <code>AnyStr</code>, <code>Num</code>。建議在用於對應聲明協變或逆變行為的變數中加入<code>_co</code>後綴or ：<code>_contra</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from typing import TypeVar</span><br><span class="line"></span><br><span class="line">VT_co = TypeVar(<span class="string">&#x27;VT_co&#x27;</span>, covariant=True)</span><br><span class="line">KT_contra = TypeVar(<span class="string">&#x27;KT_contra&#x27;</span>, contravariant=True)</span><br></pre></td></tr></table></figure>
+<h3 id="異常名稱"><a href="#異常名稱" class="headerlink" title="異常名稱"></a>異常名稱</h3><p>因為異常應該是類，所以這裡應用類別命名約定。但是，您應該在異常名稱上使用後綴“Error”（如果異常實際上是錯誤）。</p>
+<h3 id="全域變數名稱"><a href="#全域變數名稱" class="headerlink" title="全域變數名稱"></a>全域變數名稱</h3><p>（我們希望這些變數只能在一個模組內使用。）這些約定與函數的約定大致相同。</p>
+<p>設計用於 via 的模組應使用該機制來防止導出全域變量，或者使用舊的約定，在此類全域變數前添加下劃線前綴（您可能希望這樣做以指示這些全域變數是「模組非公用」）。<code>from M import *__all__</code></p>
+<h3 id="函數和變數名稱"><a href="#函數和變數名稱" class="headerlink" title="函數和變數名稱"></a>函數和變數名稱</h3><p>函數名稱應小寫，必要時用底線分隔單字以提高可讀性。</p>
+<p>變數名稱遵循與函數名稱相同的約定。</p>
+<p>僅在已成為流行風格的上下文中（例如 threading.py）才允許使用混合大小寫，以保持向後相容性。</p>
+<h3 id="函數和方法參數"><a href="#函數和方法參數" class="headerlink" title="函數和方法參數"></a>函數和方法參數</h3><p>始終用於<code>self</code>實例方法的第一個參數。</p>
+<p>始終用於<code>cls</code>類別方法的第一個參數。</p>
+<p>如果函數參數的名稱與保留關鍵字衝突，通常最好附加一個尾隨下劃線，而不是使用縮寫或拼字錯誤。因此<code>class_</code>優於<code>clss</code>. （也許更好的方法是使用同義詞來避免這種衝突。）</p>
+<h3 id="方法名稱和實例變數"><a href="#方法名稱和實例變數" class="headerlink" title="方法名稱和實例變數"></a>方法名稱和實例變數</h3><p>使用函數命名規則：小寫，單字之間以底線分隔，以提高可讀性。</p>
+<p>僅對非公共方法和實例變數使用一個前導下劃線。</p>
+<p>為了避免與子類別發生名稱衝突，請使用兩個前導底線來呼叫 Python 的名稱修飾規則。</p>
+<p>Python 將這些名稱與類別名稱混合在一起：如果類別 Foo 有一個名為 的屬性<code>__a</code>，則無法透過 存取它<code>Foo.__a</code>。 （堅持不懈的使用者仍然可以透過呼叫來獲得存取權限<code>Foo._Foo__a</code>。）通常，雙前導下劃線應該僅用於避免與設計為子類化的類別中的屬性發生名稱衝突。</p>
+<p>注意：關於 <code>__names</code> 的使用存在一些爭議（見下文）。</p>
+<h3 id="常數"><a href="#常數" class="headerlink" title="常數"></a>常數</h3><p>常數通常在模組層級定義，並全部用大寫字母書寫，並用下劃線分隔單字。範例包括 <code>MAX_OVERFLOW</code>和<code>TOTAL</code>。</p>
+<h3 id="為繼承而設計"><a href="#為繼承而設計" class="headerlink" title="為繼承而設計"></a>為繼承而設計</h3><p>始終決定類別的方法和實例變數（統稱為“屬性”）應該是公共的還是非公共的。如有疑問，請選擇非公開；稍後將其公開比將公共屬性設為非公開更容易。</p>
+<p>公共屬性是您期望與您的類別無關的客戶端使用的屬性，並承諾避免向後不相容的變更。非公共屬性是指那些不打算被第三方使用的屬性；您不保證非公共屬性不會更改甚至被刪除。</p>
+<p>我們在這裡不使用術語“私有”，因為在 Python 中沒有屬性是真正私有的（通常不需要做不必要的工作）。</p>
+<p>另一類屬性是「子類 API」的一部分（在其他語言中通常稱為「受保護」）。有些類別被設計為繼承、擴展或修改類別行為的各個方面。在設計這樣的類別時，請注意明確決定哪些屬性是公共的、哪些是子類別 API 的一部分以及哪些確實只能由基底類別使用。</p>
+<p>考慮到這一點，以下是 Pythonic 指南：</p>
+<ul>
+<li><p>公共屬性不應有前導底線。</p>
+</li>
+<li><p>如果您的公共屬性名稱與保留關鍵字衝突，請在您的屬性名稱後面新增一個尾隨下劃線。這比縮寫或損壞的拼字更好。 （然而，儘管有這條規則，「cls」是任何已知為類別的變數或參數的首選拼寫，尤其是類別方法的第一個參數。）<br>註 1：有關類別方法，請參閱上面的參數名稱建議。</p>
+</li>
+<li><p>對於簡單的公共資料屬性，最好隻公開屬性名稱，而不需要複雜的存取器&#x2F;修改器方法。請記住，如果您發現簡單的資料屬性需要擴展功能行為，Python 提供了一條未來增強的簡單路徑。在這種情況下，請使用屬性將功能實作隱藏在簡單的資料屬性存取語法後面。<br>註 1：盡量保持功能行為沒有副作用，儘管快取等副作用通常是好的。</p>
+</li>
+</ul>
+<p>註2：避免使用屬性進行計算量大的操作；屬性表示法使呼叫者相信訪問（相對）便宜。</p>
+<ul>
+<li>如果您的類別打算進行子類化，並且您有不希望子類別使用的屬性，請考慮使用雙前導下劃線命名它們，並且不使用尾隨下劃線。這會呼叫 Python 的名稱修飾演算法，其中類別的名稱被修飾為屬性名稱。如果子類別無意中包含具有相同名稱的屬性，這有助於避免屬性名稱衝突。<br>注意1：請注意，重整名稱中僅使用簡單的類別名稱，因此如果子類別選擇相同的類別名稱和屬性名稱，仍然可能會出現名稱衝突。</li>
+</ul>
+<p>註 2：名稱修改可能會使某些用途（例如除錯）變得 <code>__getattr__()</code>不太方便。然而，名稱修飾演算法有詳細記錄且易於手動執行。</p>
+<p>註 3：並不是每個人都喜歡名稱修改。嘗試在避免意外名稱衝突的需要與高階呼叫者的潛在使用之間取得平衡。</p>
+<h3 id="公共和內部介面"><a href="#公共和內部介面" class="headerlink" title="公共和內部介面"></a>公共和內部介面</h3><p>任何向後相容性保證僅適用於公共介面。因此，使用者能夠清楚地區分公共介面和內部介面非常重要。</p>
+<p>記錄的接口被認為是公共的，除非文件明確聲明它們是臨時或內部接口，不受通常的向後相容性保證。所有未記錄的介面都應假定為內部介面。</p>
+<p>為了更好地支援自省，模組應使用屬性在其公共 API 中明確聲明名稱<code>__all__</code>。設定<code> __all__</code>為空列表表示該模組沒有公共 API。</p>
+<p>即使<code>__all__</code>設定正確，內部介面（套件、模組、類別、函數、屬性或其他名稱）仍應以單一前導底線為前綴。</p>
+<p>如果任何包含命名空間（套件、模組或類別）被視為內部的，則介面也被視為內部的。</p>
+<p>導入的名稱應始終被視為實作細節。其他模組不得依賴對此類導入名稱的間接訪問，除非它們是包含模組的 API 的明確記錄部分，例如os.path或公開子<code>__init__</code>模組功能的包模組。</p>
+<h2 id="程式設計建議"><a href="#程式設計建議" class="headerlink" title="程式設計建議"></a>程式設計建議</h2><ul>
+<li><p>程式碼的編寫方式不應損害 Python 的其他實作（PyPy、Jython、IronPython、Cython、Psyco 等）。<br>例如，不要依賴 CPython 對或形式的語句進行就地字串連接的高效實作。即使在 CPython 中，這種最佳化也很脆弱（它只適用於某些類型），並且在不使用引用計數的實作中根本不存在。在庫的效能敏感部分，應改用表單。這將確保在各種實作中串聯在線性時間內發生。<code>a += ba = a + b&#39;&#39;.join()</code></p>
+</li>
+<li><p>與像 None 這樣的單例的比較應該總是使用 isor來完成，而不是使用相等運算子。<code>is not</code><br>另外，當你真正想寫的時候要小心——例如，當測試預設為 None 的變數或參數是否被設定為其他值時。另一個值可能具有在布林上下文中可能為 false 的類型（例如容器）！<code>if xif x is not None</code></p>
+</li>
+<li><p>使用運算符而不是.雖然這兩個表達式在功能上相同，但前者更具可讀性和首選：is notnot … is</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"><span class="keyword">if</span> foo is not None:</span><br><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> not foo is None:</span><br></pre></td></tr></table></figure></li>
+<li><p>當實作具有豐富比較的排序操作時，最好實作所有六個操作（<code>__eq__</code>、<code>__ne__</code>、 <code>__lt__</code>、<code>__le__</code>、<code>__gt__</code>、<code>__ge__</code>），而不是依賴其他程式碼僅執行特定比較。<br>為了最大限度地減少所涉及的工作量，functools.total_ordering() 裝飾器提供了一個工具來產生缺少的比較方法。</p>
+</li>
+</ul>
+<p>PEP 207顯示Python 假定了自反性規則。因此，解釋器可以與、 和交換，並且可以交換和的參數。and運算保證使用運算符，而函數則使用 運算符。但是，最好實現所有六個操作，以便在其他上下文中不會出現混亂。<code>y &gt; xx &lt; yy &gt;= xx &lt;= yx == yx != ysort()min()&lt;max()&gt;</code></p>
+<ul>
+<li><p>始終使用 def 語句而不是將 lambda 表達式直接綁定到標識符的賦值語句：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">def <span class="title function_">f</span><span class="params">(x)</span>: <span class="keyword">return</span> 2*x</span><br><span class="line"># Wrong:</span><br><span class="line">f = lambda x: <span class="number">2</span>*x</span><br></pre></td></tr></table></figure>
+<p>第一種形式意味著產生的函數物件的名稱具體為“f”，而不是通用的“<lambda>”。一般來說，這對於回溯和字串表示更有用。賦值語句的使用消除了 lambda 表達式相對於顯式 def 語句所能提供的唯一好處（即它可以嵌入到更大的表達式中）</p>
+</li>
+<li><p><code>Exception</code>從而不是派生異常<code>BaseException</code>。直接繼承 fromBaseException是為異常保留的，在這些異常中捕獲它們幾乎總是錯誤的做法。<br>根據 捕獲異常的程式碼可能需要的區別（而不是引發異常的位置）來設計異常層次結構。旨在回答「出了什麼問題？」的問題。以程式設計方式，而不是僅僅聲明「發生了問題」（有關內建異常層次結構的本課範例，請參閱PEP 3151 ）</p>
+</li>
+</ul>
+<p>類別命名約定適用於此，但如果異常是錯誤，則應將後綴「Error」新增至異常類別。用於非本地流控製或其他形式的信令的非錯誤異常不需要特殊後綴。</p>
+<ul>
+<li><p>適當地使用異常鏈。 應用於指示明確替換而不丟失原始回溯。<code>raise X from Y</code><br>當有意取代內部異常（使用）時，請確保相關詳細資訊已轉移至新異常（例如將 <code>KeyError</code> 轉換為 <code>AttributeError</code> 時保留屬性名稱，或將原始異常的文字嵌入到新異常訊息中）。<code>raise X from None</code></p>
+</li>
+<li><p>捕捉異常時，請盡可能提及特定異常，而不是使用裸except:子句：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    import platform_specific_module</span><br><span class="line">except ImportError:</span><br><span class="line">    platform_specific_module = None</span><br></pre></td></tr></table></figure>
+<p>裸except:子句將捕捉 SystemExit 和 KeyboardInterrupt 異常，使使用 Control-C 中斷程式變得更加困難，並可能掩蓋其他問題。如果要捕獲表示程式錯誤的所有異常，請使用 (bare except 相當於)。<code>except Exception:except BaseException</code>:</p>
+</li>
+</ul>
+<p>一個好的經驗法則是將純粹的「例外」子句的使用限制在兩種情況：</p>
+<p>  1.異常處理程序是否將列印或記錄回溯；至少用戶會意識到發生了錯誤。<br>  2.如果程式碼需要執行一些清理工作，但隨後讓異常向上傳播<code>raise</code>。 <code>try...finally</code> 可能是處理這種情況的更好方法。<br>捕捉作業系統錯誤時，偏好 Python 3.3 中引入的明確異常層次結構，而不是<code>errno</code> 值的內省。<br>此外，對於所有 <code>try/ except</code> 子句，將該try子句限制為所需的絕對最小程式碼量。同樣，這可以避免掩蓋錯誤：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">try:</span><br><span class="line">    value = collection[key]</span><br><span class="line">except KeyError:</span><br><span class="line">    <span class="keyword">return</span> key_not_found(key)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> handle_value(value)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line">try:</span><br><span class="line">    # Too broad!</span><br><span class="line">    <span class="keyword">return</span> handle_value(collection[key])</span><br><span class="line">except KeyError:</span><br><span class="line">    # Will also catch KeyError raised by handle_value()</span><br><span class="line">    <span class="keyword">return</span> key_not_found(key)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>當資源位於特定程式碼段的本地時，請使用語句 with來確保其在使用後得到及時可靠的清理。 try&#x2F;finally 語句也是可以接受的。<br>每當上下文管理器執行獲取和釋放資源以外的操作時，都應透過單獨的函數或方法來呼叫它們：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line">with conn.begin_transaction():</span><br><span class="line">    do_stuff_in_transaction(conn)</span><br><span class="line"># Wrong:</span><br><span class="line">with conn:</span><br><span class="line">    do_stuff_in_transaction(conn)</span><br></pre></td></tr></table></figure>
+<p>後一個範例沒有提供任何資訊來表明<code>__enter__</code>和<code>__exit__</code>方法除了在事務後關閉連接之外正在執行其他操作。在這種情況下，明確很重要。</p>
+</li>
+<li><p>返回語句保持一致。函數中的所有 return 語句要么都應該返回表達式，要么都不應該返回。如果任何 return 語句傳回一個表達式，則任何不傳回值的 return 語句都應將其明確宣告為，且明確 return 語句應出現在函數結尾（如果可到達）：<code>return None</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"></span><br><span class="line">def <span class="title function_">foo</span><span class="params">(x)</span>:</span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> math.<span class="built_in">sqrt</span>(x)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> None</span><br><span class="line"></span><br><span class="line">def bar(x):</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> None</span><br><span class="line">    <span class="keyword">return</span> math.<span class="built_in">sqrt</span>(x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line"></span><br><span class="line">def <span class="title function_">foo</span><span class="params">(x)</span>:</span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> math.<span class="built_in">sqrt</span>(x)</span><br><span class="line"></span><br><span class="line">def bar(x):</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">return</span> math.<span class="built_in">sqrt</span>(x)</span><br><span class="line">```    </span><br><span class="line">  * 使用`<span class="string">&#x27;&#x27;.startswith()`and`&#x27;</span><span class="string">&#x27;.endswith()`代替字串切片來檢查前綴或後綴。</span></span><br><span class="line"><span class="string">startswith() 和endswith() 更乾淨且更不容易出錯：</span></span><br><span class="line"><span class="string">```c</span></span><br><span class="line"><span class="string"># Correct:</span></span><br><span class="line"><span class="string">if foo.startswith(&#x27;</span>bar<span class="number">&#x27;</span>):</span><br><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> foo[:<span class="number">3</span>] == <span class="string">&#x27;bar&#x27;</span>:</span><br></pre></td></tr></table></figure></li>
+<li><p>物件類型比較應始終使用 isinstance() 而不是直接比較類型：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"><span class="keyword">if</span> <span class="title function_">isinstance</span><span class="params">(obj, <span class="type">int</span>)</span>:</span><br><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> <span class="title function_">type</span><span class="params">(obj)</span> is <span class="title function_">type</span><span class="params">(<span class="number">1</span>)</span>:</span><br></pre></td></tr></table></figure></li>
+<li><p>對於序列（字串、列表、元組），請使用空序列為 false 的事實：</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"><span class="keyword">if</span> not seq:</span><br><span class="line"><span class="keyword">if</span> seq:</span><br><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> <span class="title function_">len</span><span class="params">(seq)</span>:</span><br><span class="line"><span class="keyword">if</span> not <span class="title function_">len</span><span class="params">(seq)</span>:</span><br></pre></td></tr></table></figure></li>
+<li><p>不要寫依賴重要尾隨空格的字串文字。這種尾隨空白在視覺上是無法區分的，有些編輯器（或最近的reindent.py）會修剪它們。<br>請勿使用以下方法將布林值與 True 或 False 進行比較&#x3D;&#x3D;：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"><span class="keyword">if</span> greeting:</span><br><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> greeting == True:</span><br></pre></td></tr></table></figure>
+<p>更差：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line"><span class="keyword">if</span> greeting is True:</span><br></pre></td></tr></table></figure></li>
+<li><p><code>return</code>&#x2F;&#x2F;不<code>break</code>鼓勵<code>continue</code> 在 a 的finally 套件中使用流程控制語句<code>try...finally</code>，其中流程控制語句會跳到finally 套件之外。這是因為這樣的語句將隱式取消透過finally套件傳播的任何活動異常：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Wrong:</span><br><span class="line">def <span class="title function_">foo</span><span class="params">()</span>:</span><br><span class="line">    try:</span><br><span class="line">        1 / 0</span><br><span class="line">    finally:</span><br><span class="line">        <span class="keyword">return</span> 42</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="函數註釋"><a href="#函數註釋" class="headerlink" title="函數註釋"></a>函數註釋</h2><p>隨著PEP 484的接受，函數註解的樣式規則改變了。</p>
+<ul>
+<li><p>函數註解應使用PEP 484語法（上一節有一些註解的格式建議）。</p>
+</li>
+<li><p>不再鼓勵對本 PEP 中先前建議的註釋樣式進行實驗。</p>
+</li>
+<li><p>然而，在 stdlib 之外，現在鼓勵在PEP 484規則範圍內進行實驗。例如，使用PEP 484樣式類型註釋標記大型第三方庫或應用程序，檢查添加這些註釋的容易程度，並觀察它們的存在是否會提高程式碼的可理解性。</p>
+</li>
+<li><p>Python 標準函式庫在採用此類註解時應該保守，但它們的使用是允許用於新程式碼和大型重構的。</p>
+</li>
+<li><p>對於想要以不同方式使用函數註解的程式碼，建議新增以下形式的註解：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># type: ignore</span></span><br></pre></td></tr></table></figure>
+<p>靠近文件頂部；這告訴類型檢查器忽略所有註釋。 （可以在PEP 484中找到禁用類型檢查器投訴的更細粒度的方法。）</p>
+</li>
+<li><p>與 linter 一樣，類型檢查器是可選的獨立工具。預設情況下，Python 解釋器不應因類型檢查而發出任何訊息，也不應根據註釋改變其行為。</p>
+</li>
+<li><p>不想使用類型檢查器的使用者可以忽略它們。但是，預計第三方庫包的用戶可能希望對這些包運行類型檢查器。為此， PEP 484建議使用存根檔案：類型檢查器優先於相應的 .py 檔案讀取的 .pyi 檔案。存根檔案可以與庫一起分發，也可以透過 typeshed repo [5]單獨分發（在庫作者的許可下） 。</p>
+</li>
+</ul>
+<h2 id="變數註釋"><a href="#變數註釋" class="headerlink" title="變數註釋"></a>變數註釋</h2><p>PEP 526引入了變數註解。對它們的風格建議與上面描述的函數註釋的風格建議類似：</p>
+<ul>
+<li>模組級變數、類別和實例變數以及局部變數的註解應在冒號後面有一個空格。</li>
+<li>冒號之前不應有空格。</li>
+<li>如果賦​​值有右側，則等號兩側應恰好有一個空格：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Correct:</span><br><span class="line"></span><br><span class="line">code: <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>:</span></span><br><span class="line">    coords: Tuple[<span class="type">int</span>, <span class="type">int</span>]</span><br><span class="line">    label: str = <span class="string">&#x27;&lt;unknown&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="c"># Wrong:
+
+code:int  # No space after colon
+code : int  # Space before colon
+
+class Test:
+    result: int=0  # No spaces around equality sign
+</code></pre>
+<p>儘管Python 3.6 接受PEP 526 ，但變數註釋語法是所有 Python 版本上存根檔案的首選語法（有關詳細信息，請參閱PEP 484）。<br>註腳</p>
+<p>[ 1 ]<br>懸掛縮排是一種排版樣式，段落中除第一行外的所有行均縮排。在 Python 上下文中，該術語用於描述一種樣式，其中帶括號的語句的左括號是該行的最後一個非空白字符，後續行縮排直到右括號。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/12/python-pep8/" data-id="clymtehns0004pxl4hgj03onk" data-title="PEP 8 – Python 程式碼風格指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-troubleshooting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/05/troubleshooting/" class="article-date">
+  <time class="dt-published" datetime="2024-07-05T05:55:20.000Z" itemprop="datePublished">2024-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/05/troubleshooting/">Hexo 問題 troubleshooting</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="安裝Hexo時發生的問題"><a href="#安裝Hexo時發生的問題" class="headerlink" title="安裝Hexo時發生的問題"></a>安裝Hexo時發生的問題</h1><h2 id="如何新增圖片"><a href="#如何新增圖片" class="headerlink" title="如何新增圖片"></a>如何新增圖片</h2><ul>
+<li><p>在_config.yml中加入以下的內容,post_asset_folder: <code>false</code> 改成<code>true</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br><span class="line">marked:</span><br><span class="line">  prependRoot: <span class="literal">true</span></span><br><span class="line">  postAsset: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新開啟Hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在新增blog “文章“ 時會在<code>blog/source/_posts/</code>加入”文章.md”和“文章”的路徑，在“文章”的路徑中加入你的圖片就可以了.</p>
+</li>
+<li><p>在文章之中要加圖片指令如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](/path/to/img.jpg <span class="string">&quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>可以在文章之中看到圖片，可是在server中還是會說沒有找到。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/05/troubleshooting/" data-id="clymtehnr0003pxl4fqli6goj" data-title="Hexo 問題 troubleshooting" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-vscode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/05/vscode/" class="article-date">
+  <time class="dt-published" datetime="2024-07-05T02:55:23.000Z" itemprop="datePublished">2024-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/05/vscode/">VS Code</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="安裝-VS-Code"><a href="#安裝-VS-Code" class="headerlink" title="安裝 VS Code"></a>安裝 VS Code</h2><h3 id="1-下載-Ubuntu-版本的-VS-Code"><a href="#1-下載-Ubuntu-版本的-VS-Code" class="headerlink" title="1. 下載 Ubuntu 版本的 VS Code"></a>1. 下載 Ubuntu 版本的 VS Code</h3><ul>
+<li>請透過瀏覽器連到下方網址<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://code.visualstudio.com/download </span><br></pre></td></tr></table></figure></li>
+<li>點選 Debian, Ubuntu<br><img src="/2024/07/05/vscode/vscode_download.png"></li>
+</ul>
+<h2 id="2-切換工作目錄"><a href="#2-切換工作目錄" class="headerlink" title="2. 切換工作目錄"></a>2. 切換工作目錄</h2><ul>
+<li>移動路徑到所下載 VS Code 的安裝檔所在位置<br>  請在終端機中輸入下方指令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Downloads </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-安裝"><a href="#3-安裝" class="headerlink" title="3.安裝"></a>3.安裝</h2><ul>
+<li>請在終端機中輸入下方指令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i code_1.91.0-1719861592_amd64.deb </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-開啟-VS-Code"><a href="#4-開啟-VS-Code" class="headerlink" title="4.開啟 VS Code"></a>4.開啟 VS Code</h2><p>請在終端機中輸入下方指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code </span><br></pre></td></tr></table></figure>
+<p><img src="/2024/07/05/vscode/code.png" alt="code"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/05/vscode/" data-id="clymtehnt0005pxl44jt06xhc" data-title="VS Code" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-markdown-syntax" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/05/markdown-syntax/" class="article-date">
+  <time class="dt-published" datetime="2024-07-05T01:57:54.000Z" itemprop="datePublished">2024-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/05/markdown-syntax/">Markdown 文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Markdown-wiki"><a href="#Markdown-wiki" class="headerlink" title="Markdown wiki"></a>Markdown wiki</h1><p>Markdown是一種輕量級標記式語言，創始人為約翰·格魯伯。它允許人們使用易讀易寫的純文字格式編寫文件，然後轉換成有效的XHTML（或者HTML）文件。<a target="_blank" rel="noopener" href="http://docutils.sourceforge.net/rst.html">4</a>這種語言吸收了很多在電子郵件中已有的純文字標記的特性。</p>
+<p>由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Discord、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。</p>
+<p><img src="https://markdown.tw/images/208x128.png" alt="Markdown"></p>
+<p><strong>NOTE:</strong> This is Traditional Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to <a target="_blank" rel="noopener" href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a>.</p>
+<h1 id="Markdown-Syntax"><a href="#Markdown-Syntax" class="headerlink" title="Markdown: Syntax"></a>Markdown: Syntax</h1><ul>
+<li><a href="#overview">概述</a><ul>
+<li><a href="#philosophy">哲學</a></li>
+<li><a href="#html">行內 HTML</a></li>
+<li><a href="#autoescape">特殊字元自動轉換</a></li>
+</ul>
+</li>
+<li><a href="#block">區塊元素</a><ul>
+<li><a href="#p">段落和換行</a></li>
+<li><a href="#header">標題</a></li>
+<li><a href="#blockquote">區塊引言</a></li>
+<li><a href="#list">清單</a></li>
+<li><a href="#precode">程式碼區塊</a></li>
+<li><a href="#hr">分隔線</a></li>
+</ul>
+</li>
+<li><a href="#span">區段元素</a><ul>
+<li><a href="#link">連結</a></li>
+<li><a href="#em">強調</a></li>
+<li><a href="#code">程式碼</a></li>
+<li><a href="#img">圖片</a></li>
+</ul>
+</li>
+<li><a href="#misc">其它</a><ul>
+<li><a href="#backslash">跳脫字元</a></li>
+<li><a href="#autolink">自動連結</a></li>
+</ul>
+</li>
+<li><a href="#acknowledgement">感謝</a></li>
+</ul>
+<p><strong>注意：</strong>這份文件是用 Markdown 寫的，你可以<a target="_blank" rel="noopener" href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md">看看它的原始檔</a> 。</p>
+<hr>
+<h2 id="overview">概述</h2>
+
+<h3 id="philosophy">哲學</h3>
+
+<p>Markdown 的目標是實現「易讀易寫」。</p>
+<p>不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 語法受到一些既有 text-to-HTML 格式的影響，包括 [Setext] <a target="_blank" rel="noopener" href="http://docutils.sourceforge.net/mirror/setext.html">1</a>、[atx] <a target="_blank" rel="noopener" href="http://www.aaronsw.com/2002/atx/">2</a>、[Textile] <a target="_blank" rel="noopener" href="http://textism.com/tools/textile/">3</a>、[reStructuredText] <a target="_blank" rel="noopener" href="http://docutils.sourceforge.net/rst.html">4</a>、[Grutatext] <a target="_blank" rel="noopener" href="http://www.triptico.com/software/grutatxt.html">5</a> 和 [EtText] <a target="_blank" rel="noopener" href="http://ettext.taint.org/doc/">6</a>，然而最大靈感來源其實是純文字的電子郵件格式。</p>
+<p>因此 Markdown 的語法全由標點符號所組成，並經過嚴謹慎選，是為了讓它們看起來就像所要表達的意思。像是在文字兩旁加上星號，看起來就像*強調*。Markdown 的清單看起來，嗯，就是清單。假如你有使用過電子郵件，區塊引言看起來就真的像是引用一段文字。</p>
+<h3 id="html">行內 HTML</h3>
+
+<p>Markdown 的語法有個主要的目的：用來作為一種網路內容的<em>寫作</em>用語言。</p>
+<p>Markdown 不是要來取代 HTML，甚至也沒有要和它相似，它的語法種類不多，只和 HTML 的一部分有關係，重點<em>不是</em>要創造一種更容易寫作 HTML 文件的語法，我認為 HTML 已經很容易寫了，Markdown 的重點在於，它能讓文件更容易閱讀、編寫。HTML 是一種<em>發佈</em>的格式，Markdown 是一種<em>編寫</em>的格式，因此，Markdown 的格式語法只涵蓋純文字可以涵蓋的範圍。</p>
+<p>不在 Markdown 涵蓋範圍之外的標籤，都可以直接在文件裡面用 HTML 撰寫。不需要額外標註這是 HTML 或是 Markdown；只要直接加標籤就可以了。</p>
+<p>只有區塊元素──比如 <code>&lt;div&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;pre&gt;</code>、<code>&lt;p&gt;</code> 等標籤，必須在前後加上空行，以利與內容區隔。而且這些（元素）的開始與結尾標籤，不可以用 tab 或是空白來縮排。Markdown 的產生器有智慧型判斷，可以避免在區塊標籤前後加上沒有必要的 <code>&lt;p&gt;</code> 標籤。</p>
+<p>舉例來說，在 Markdown 文件裡加上一段 HTML 表格：</p>
+<pre><code>This is a regular paragraph.
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+This is another regular paragraph.
+</code></pre>
+<p>請注意，Markdown 語法在 HTML 區塊標籤中將不會被進行處理。例如，你無法在 HTML 區塊內使用 Markdown 形式的<code>*強調*</code>。</p>
+<p>HTML 的區段標籤如 <code>&lt;span&gt;</code>、<code>&lt;cite&gt;</code>、<code>&lt;del&gt;</code> 則不受限制，可以在 Markdown 的段落、清單或是標題裡任意使用。依照個人習慣，甚至可以不用Markdown 格式，而採用 HTML 標籤來格式化。舉例說明：如果比較喜歡 HTML 的  <code>&lt;a&gt;</code> 或 <code>&lt;img&gt;</code> 標籤，可以直接使用這些標籤，而不用 Markdown 提供的連結或是影像標示語法。</p>
+<p>HTML 區段標籤和區塊標籤不同，在區段標籤的範圍內， Markdown 的語法是有效的。</p>
+<h3 id="autoescape">特殊字元自動轉換</h3>
+
+<p>在 HTML 文件中，有兩個字元需要特殊處理： <code>&lt;</code> 和 <code>&amp;</code> 。 <code>&lt;</code> 符號用於起始標籤，<code>&amp;</code> 符號則用於標記 HTML 實體，如果你只是想要使用這些符號，你必須要使用實體的形式，像是 <code>&amp;lt;</code> 和 <code>&amp;amp;</code>。</p>
+<p><code>&amp;</code> 符號其實很容易讓寫作網路文件的人感到困擾，如果你要打「AT&amp;T」 ，你必須要寫成「<code>AT&amp;amp;T</code>」 ，還得轉換網址內的 <code>&amp;</code> 符號，如果你要連結到：</p>
+<pre><code>http://images.google.com/images?num=30&amp;q=larry+bird
+</code></pre>
+<p>你必須要把網址轉成：</p>
+<pre><code>http://images.google.com/images?num=30&amp;amp;q=larry+bird
+</code></pre>
+<p>才能放到連結標籤的 <code>href</code> 屬性裡。不用說也知道這很容易忘記，這也可能是 HTML 標準檢查所檢查到的錯誤中，數量最多的。</p>
+<p>Markdown 允許你直接使用這些符號，但是你要小心跳脫字元的使用，如果你是在HTML 實體中使用 <code>&amp;</code> 符號的話，它不會被轉換，而在其它情形下，它則會被轉換成 <code>&amp;amp;</code>。所以你如果要在文件中插入一個著作權的符號，你可以這樣寫：</p>
+<pre><code>&amp;copy;
+</code></pre>
+<p>Markdown 將不會對這段文字做修改，但是如果你這樣寫：</p>
+<pre><code>AT&amp;T
+</code></pre>
+<p>Markdown 就會將它轉為：</p>
+<pre><code>AT&amp;amp;T
+</code></pre>
+<p>類似的狀況也會發生在 <code>&lt;</code> 符號上，因為 Markdown 支援 <a href="#html">行內 HTML</a> ，如果你是使用 <code>&lt;</code> 符號作為 HTML 標籤使用，那 Markdown 也不會對它做任何轉換，但是如果你是寫：</p>
+<pre><code>4 &lt; 5
+</code></pre>
+<p>Markdown 將會把它轉換為：</p>
+<pre><code>4 &amp;lt; 5
+</code></pre>
+<p>不過需要注意的是，code 範圍內，不論是行內還是區塊， <code>&lt;</code> 和 <code>&amp;</code> 兩個符號都<em>一定</em>會被轉換成 HTML 實體，這項特性讓你可以很容易地用 Markdown 寫 HTML code （和 HTML 相對而言， HTML 語法中，你要把所有的 <code>&lt;</code> 和 <code>&amp;</code> 都轉換為 HTML 實體，才能在 HTML 文件裡面寫出 HTML code。）</p>
+<hr>
+<h2 id="block">區塊元素</h2>
+
+
+<h3 id="p">段落和換行</h3>
+
+<p>一個段落是由一個以上相連接的行句組成，而一個以上的空行則會切分出不同的段落（空行的定義是顯示上看起來像是空行，便會被視為空行。比方說，若某一行只包含空白和 tab，則該行也會被視為空行），一般的段落不需要用空白或斷行縮排。</p>
+<p>「一個以上相連接的行句組成」這句話其實暗示了 Markdown 允許段落內的強迫斷行，這個特性和其他大部分的 text-to-HTML 格式不一樣（包括 MovableType 的「Convert Line Breaks」選項），其它的格式會把每個斷行都轉成 <code>&lt;br /&gt;</code> 標籤。</p>
+<p>如果你<em>真的</em>想要插入 <code>&lt;br /&gt;</code> 標籤的話，在行尾加上兩個以上的空白，然後按 enter。</p>
+<p>是的，這確實需要花比較多功夫來插入 <code>&lt;br /&gt;</code> ，但是「每個換行都轉換為 <code>&lt;br /&gt;</code>」的方法在 Markdown 中並不適合， Markdown 中 email 式的 <a href="#blockquote">區塊引言</a> 和多段落的 <a href="#list">清單</a> 在使用換行來排版的時候，不但更好用，還更好閱讀。</p>
+<h3 id="header">標題</h3>
+
+<p>Markdown 支援兩種標題的語法，[Setext] <a target="_blank" rel="noopener" href="http://docutils.sourceforge.net/mirror/setext.html">1</a> 和 [atx] <a target="_blank" rel="noopener" href="http://www.aaronsw.com/2002/atx/">2</a> 形式。</p>
+<p>Setext 形式是用底線的形式，利用 <code>=</code> （最高階標題）和 <code>-</code> （第二階標題），例如：</p>
+<pre><code>This is an H1
+=============
+
+This is an H2
+-------------
+</code></pre>
+<p>任何數量的 <code>=</code> 和 <code>-</code> 都可以有效果。</p>
+<p>Atx 形式則是在行首插入 1 到 6 個 <code>#</code> ，對應到標題 1 到 6 階，例如：</p>
+<pre><code># This is an H1
+
+## This is an H2
+
+###### This is an H6
+</code></pre>
+<p>你可以選擇性地「關閉」atx 樣式的標題，這純粹只是美觀用的，若是覺得這樣看起來比較舒適，你就可以在行尾加上 <code>#</code>，而行尾的 <code>#</code> 數量也不用和開頭一樣（行首的井字數量決定標題的階數）：</p>
+<pre><code># This is an H1 #
+
+## This is an H2 ##
+
+### This is an H3 ######
+</code></pre>
+<h3 id="blockquote">Blockquotes</h3>
+
+<p>Markdown 使用 email 形式的區塊引言，如果你很熟悉如何在 email 信件中引言，你就知道怎麼在 Markdown 文件中建立一個區塊引言，那會看起來像是你強迫斷行，然後在每行的最前面加上 <code>&gt;</code> ：</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+&gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+&gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+&gt; 
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+&gt; id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p>Markdown 也允許你只在整個段落的第一行最前面加上 <code>&gt;</code> ：</p>
+<pre><code>&gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+&gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
+id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p>區塊引言可以有階層（例如：引言內的引言），只要根據層數加上不同數量的 <code>&gt;</code> ：</p>
+<pre><code>&gt; This is the first level of quoting.
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.
+</code></pre>
+<p>引言的區塊內也可以使用其他的 Markdown 語法，包括標題、清單、程式碼區塊等：</p>
+<pre><code>&gt; ## This is a header.
+&gt; 
+&gt; 1.   This is the first list item.
+&gt; 2.   This is the second list item.
+&gt; 
+&gt; Here&#39;s some example code:
+&gt; 
+&gt;     return shell_exec(&quot;echo $input | $markdown_script&quot;);
+</code></pre>
+<p>任何標準的文字編輯器都能簡單地建立 email 樣式的引言，例如 BBEdit ，你可以選取文字後然後從選單中選擇<em>增加引言階層</em>。</p>
+<h3 id="list">清單</h3>
+
+<p>Markdown 支援有序清單和無序清單。</p>
+<p>無序清單使用星號、加號或是減號作為清單標記：</p>
+<pre><code>*   Red
+*   Green
+*   Blue
+</code></pre>
+<p>等同於：</p>
+<pre><code>+   Red
++   Green
++   Blue
+</code></pre>
+<p>也等同於：</p>
+<pre><code>-   Red
+-   Green
+-   Blue
+</code></pre>
+<p>有序清單則使用數字接著一個英文句點：</p>
+<pre><code>1.  Bird
+2.  McHale
+3.  Parish
+</code></pre>
+<p>很重要的一點是，你在清單標記上使用的數字並不會影響輸出的 HTML 結果，上面的清單所產生的 HTML 標記為：</p>
+<pre><code>&lt;ol&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;McHale&lt;/li&gt;
+&lt;li&gt;Parish&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>如果你的清單標記寫成：</p>
+<pre><code>1.  Bird
+1.  McHale
+1.  Parish
+</code></pre>
+<p>或甚至是：</p>
+<pre><code>3. Bird
+1. McHale
+8. Parish
+</code></pre>
+<p>你都會得到完全相同的 HTML 輸出。重點在於，你可以讓 Markdown 文件的清單數字和輸出的結果相同，或是你懶一點，你可以完全不用在意數字的正確性。</p>
+<p>如果你使用懶惰的寫法，建議第一個項目最好還是從 1. 開始，因為 Markdown 未來可能會支援有序清單的 start 屬性。</p>
+<p>清單項目標記通常是放在最左邊，但是其實也可以縮排，最多三個空白，項目標記後面則一定要接著至少一個空白或 tab。</p>
+<p>要讓清單看起來更漂亮，你可以把內容用固定的縮排整理好：</p>
+<pre><code>*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+    viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+    Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p>但是如果你很懶，那也不一定需要：</p>
+<pre><code>*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
+viverra nec, fringilla in, laoreet vitae, risus.
+*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
+Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p>如果清單項目間用空行分開， Markdown 會把項目的內容在輸出時用 <code>&lt;p&gt;</code><br>標籤包起來，舉例來說：</p>
+<pre><code>*   Bird
+*   Magic
+</code></pre>
+<p>會被轉換為：</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;Bird&lt;/li&gt;
+&lt;li&gt;Magic&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>但是這個：</p>
+<pre><code>*   Bird
+
+*   Magic
+</code></pre>
+<p>會被轉換為：</p>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Bird&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Magic&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>清單項目可以包含多個段落，每個項目下的段落都必須縮排 4 個空白或是一個 tab ：</p>
+<pre><code>1.  This is a list item with two paragraphs. Lorem ipsum dolor
+    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
+    mi posuere lectus.
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
+    sit amet velit.
+
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
+</code></pre>
+<p>如果你每行都有縮排，看起來會看好很多，當然，再次地，如果你很懶惰，Markdown 也允許：</p>
+<pre><code>*   This is a list item with two paragraphs.
+
+    This is the second paragraph in the list item. You&#39;re
+only required to indent the first line. Lorem ipsum dolor
+sit amet, consectetuer adipiscing elit.
+
+*   Another item in the same list.
+</code></pre>
+<p>如果要在清單項目內放進引言，那 <code>&gt;</code> 就需要縮排：</p>
+<pre><code>*   A list item with a blockquote:
+
+    &gt; This is a blockquote
+    &gt; inside a list item.
+</code></pre>
+<p>如果要放程式碼區塊的話，該區塊就需要縮排<em>兩次</em>，也就是 8 個空白或是兩個 tab：</p>
+<pre><code>*   A list item with a code block:
+
+        &lt;code goes here&gt;
+</code></pre>
+<p>當然，項目清單很可能會不小心產生，像是下面這樣的寫法：</p>
+<pre><code>1986. What a great season.
+</code></pre>
+<p>換句話說，也就是在行首出現<em>數字-句點-空白</em>，要避免這樣的狀況，你可以在句點前面加上反斜線。</p>
+<pre><code>1986\. What a great season.
+</code></pre>
+<h3 id="precode">程式碼區塊</h3>
+
+<p>和程式相關的寫作或是標籤語言原始碼通常會有已經排版好的程式碼區塊，通常這些區塊我們並不希望它以一般段落文件的方式去排版，而是照原來的樣子顯示，Markdown 會用 <code>&lt;pre&gt;</code> 和 <code>&lt;code&gt;</code> 標籤來把程式碼區塊包起來。</p>
+<p>要在 Markdown 中建立程式碼區塊很簡單，只要簡單地縮排 4 個空白或是 1 個 tab 就可以，例如，下面的輸入：</p>
+<pre><code>This is a normal paragraph:
+
+    This is a code block.
+</code></pre>
+<p>Markdown 會轉換成：</p>
+<pre><code>&lt;p&gt;This is a normal paragraph:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This is a code block.
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<p>這個每行一階的縮排（4 個空白或是 1 個 tab），都會被移除，例如：</p>
+<pre><code>Here is an example of AppleScript:
+
+    tell application &quot;Foo&quot;
+        beep
+    end tell
+</code></pre>
+<p>會被轉換為：</p>
+<pre><code>&lt;p&gt;Here is an example of AppleScript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tell application &quot;Foo&quot;
+    beep
+end tell
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<p>一個程式碼區塊會一直持續到沒有縮排的那一行（或是文件結尾）。</p>
+<p>在程式碼區塊裡面， <code>&amp;</code> 、 <code>&lt;</code> 和 <code>&gt;</code> 會自動轉成 HTML 實體，這樣的方式讓你非常容易使用 Markdown 插入範例用的 HTML 原始碼，只需要複製貼上，再加上縮排就可以了，剩下的 Markdown 都會幫你處理，例如：</p>
+<pre><code>    &lt;div class=&quot;footer&quot;&gt;
+        &amp;copy; 2004 Foo Corporation
+    &lt;/div&gt;
+</code></pre>
+<p>會被轉換為：</p>
+<pre><code>&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&quot;footer&quot;&amp;gt;
+    &amp;amp;copy; 2004 Foo Corporation
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<p>程式碼區塊中，一般的 Markdown 語法不會被轉換，像是星號便只是星號，這表示你可以很容易地以 Markdown 語法撰寫 Markdown 語法相關的文件。</p>
+<h3 id="hr">分隔線</h3>
+
+<p>你可以在一行中用三個或以上的星號、減號、底線來建立一個分隔線，行內不能有其他東西。你也可以在星號中間插入空白。下面每種寫法都可以建立分隔線：</p>
+<pre><code>* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
+</code></pre>
+<hr>
+<h2 id="span">區段元素</h2>
+
+<h3 id="link">連結</h3>
+
+<p>Markdown 支援兩種形式的連結語法： <em>行內</em>和<em>參考</em>兩種形式。</p>
+<p>不管是哪一種，連結的文字都是用 [方括號] 來標記。</p>
+<p>要建立一個行內形式的連結，只要在方塊括號後面馬上接著括號並插入網址連結即可，如果你還想要加上連結的 title 文字，只要在網址後面，用雙引號把 title 文字包起來即可，例如：</p>
+<pre><code>This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+
+[This link](http://example.net/) has no title attribute.
+</code></pre>
+<p>會產生：</p>
+<pre><code>&lt;p&gt;This is &lt;a href=&quot;http://example.com/&quot; title=&quot;Title&quot;&gt;
+an example&lt;/a&gt; inline link.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://example.net/&quot;&gt;This link&lt;/a&gt; has no
+title attribute.&lt;/p&gt;
+</code></pre>
+<p>如果你是要連結到同樣主機的資源，你可以使用相對路徑：</p>
+<pre><code>See my [About](/about/) page for details.   
+</code></pre>
+<p>參考形式的連結使用另外一個方括號接在連結文字的括號後面，而在第二個方括號裡面要填入用以辨識連結的標籤：</p>
+<pre><code>This is [an example][id] reference-style link.
+</code></pre>
+<p>你也可以選擇性地在兩個方括號中間加上空白：</p>
+<pre><code>This is [an example] [id] reference-style link.
+</code></pre>
+<p>接著，在文件的任意處，你可以把這個標籤的連結內容定義出來：</p>
+<pre><code>[id]: http://example.com/  &quot;Optional Title Here&quot;
+</code></pre>
+<p>連結定義的形式為：</p>
+<ul>
+<li>方括號，裡面輸入連結的辨識用標籤</li>
+<li>接著一個冒號</li>
+<li>接著一個以上的空白或 tab</li>
+<li>接著連結的網址</li>
+<li>選擇性地接著 title 內容，可以用單引號、雙引號或是括弧包著</li>
+</ul>
+<p>下面這三種連結的定義都是相同：</p>
+<pre><code>[foo]: http://example.com/  &quot;Optional Title Here&quot;
+[foo]: http://example.com/  &#39;Optional Title Here&#39;
+[foo]: http://example.com/  (Optional Title Here)
+</code></pre>
+<p><strong>請注意：</strong>有一個已知的問題是 Markdown.pl 1.0.1 會忽略單引號包起來的連結 title。</p>
+<p>連結網址也可以用方括號包起來：</p>
+<pre><code>[id]: &lt;http://example.com/&gt;  &quot;Optional Title Here&quot;
+</code></pre>
+<p>你也可以把 title 屬性放到下一行，也可以加一些縮排，網址太長的話，這樣會比較好看：</p>
+<pre><code>[id]: http://example.com/longish/path/to/resource/here
+    &quot;Optional Title Here&quot;
+</code></pre>
+<p>網址定義只有在產生連結的時候用到，並不會直接出現在文件之中。</p>
+<p>連結辨識標籤可以有字母、數字、空白和標點符號，但是並<em>不</em>區分大小寫，因此下面兩個連結是一樣的：</p>
+<pre><code>[link text][a]
+[link text][A]
+</code></pre>
+<p><em>預設的連結標籤</em>功能讓你可以省略指定連結標籤，這種情形下，連結標籤和連結文字會視為相同，要用預設連結標籤只要在連結文字後面加上一個空的方括號，如果你要讓 “Google” 連結到 google.com，你可以簡化成：</p>
+<pre><code>[Google][]
+</code></pre>
+<p>然後定義連結內容：</p>
+<pre><code>[Google]: http://google.com/
+</code></pre>
+<p>由於連結文字可能包含空白，所以這種簡化的標籤內也可以包含多個文字：</p>
+<pre><code>Visit [Daring Fireball][] for more information.
+</code></pre>
+<p>然後接著定義連結：</p>
+<pre><code>[Daring Fireball]: http://daringfireball.net/
+</code></pre>
+<p>連結的定義可以放在文件中的任何一個地方，我比較偏好直接放在連結出現段落的後面，你也可以把它放在文件最後面，就像是註解一樣。</p>
+<p>下面是一個參考式連結的範例：</p>
+<pre><code>I get 10 times more traffic from [Google] [1] than from
+[Yahoo] [2] or [MSN] [3].
+
+  [1]: http://google.com/        &quot;Google&quot;
+  [2]: http://search.yahoo.com/  &quot;Yahoo Search&quot;
+  [3]: http://search.msn.com/    &quot;MSN Search&quot;
+</code></pre>
+<p>如果改成用連結名稱的方式寫：</p>
+<pre><code>I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+  [google]: http://google.com/        &quot;Google&quot;
+  [yahoo]:  http://search.yahoo.com/  &quot;Yahoo Search&quot;
+  [msn]:    http://search.msn.com/    &quot;MSN Search&quot;
+</code></pre>
+<p>上面兩種寫法都會產生下面的 HTML。</p>
+<pre><code>&lt;p&gt;I get 10 times more traffic from &lt;a href=&quot;http://google.com/&quot;
+title=&quot;Google&quot;&gt;Google&lt;/a&gt; than from
+&lt;a href=&quot;http://search.yahoo.com/&quot; title=&quot;Yahoo Search&quot;&gt;Yahoo&lt;/a&gt;
+or &lt;a href=&quot;http://search.msn.com/&quot; title=&quot;MSN Search&quot;&gt;MSN&lt;/a&gt;.&lt;/p&gt;
+</code></pre>
+<p>下面是用行內形式寫的同樣一段內容的 Markdown 文件，提供作為比較之用：</p>
+<pre><code>I get 10 times more traffic from [Google](http://google.com/ &quot;Google&quot;)
+than from [Yahoo](http://search.yahoo.com/ &quot;Yahoo Search&quot;) or
+[MSN](http://search.msn.com/ &quot;MSN Search&quot;).
+</code></pre>
+<p>參考式的連結其實重點不在於它比較好寫，而是它比較好讀，比較一下上面的範例，使用參考式的文章本身只有 81 個字元，但是用行內形式的連結卻會增加到 176 個字元，如果是用純 HTML 格式來寫，會有 234 個字元，在 HTML 格式中，標籤比文字還要多。</p>
+<p>使用 Markdown 的參考式連結，可以讓文件更像是瀏覽器最後產生的結果，讓你可以把一些標記相關的資訊移到段落文字之外，你就可以增加連結而不讓文章的閱讀感覺被打斷。</p>
+<h3 id="em">強調</h3>
+
+<p>Markdown 使用星號（<code>*</code>）和底線（<code>_</code>）作為標記強調字詞的符號，被 <code>*</code> 或 <code>_</code> 包圍的字詞會被轉成用 <code>&lt;em&gt;</code> 標籤包圍，用兩個 <code>*</code> 或 <code>_</code> 包起來的話，則會被轉成 <code>&lt;strong&gt;</code>，例如：</p>
+<pre><code>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+</code></pre>
+<p>會轉成：</p>
+<pre><code>&lt;em&gt;single asterisks&lt;/em&gt;
+
+&lt;em&gt;single underscores&lt;/em&gt;
+
+&lt;strong&gt;double asterisks&lt;/strong&gt;
+
+&lt;strong&gt;double underscores&lt;/strong&gt;
+</code></pre>
+<p>你可以隨便用你喜歡的樣式，唯一的限制是，你用什麼符號開啟標籤，就要用什麼符號結束。</p>
+<p>強調也可以直接插在文字中間：</p>
+<pre><code>un*frigging*believable
+</code></pre>
+<p>但是如果你的 <code>*</code> 和 <code>_</code> 兩邊都有空白的話，它們就只會被當成普通的符號。</p>
+<p>如果要在文字前後直接插入普通的星號或底線，你可以用反斜線：</p>
+<pre><code>\*this text is surrounded by literal asterisks\*
+</code></pre>
+<h3 id="code">程式碼</h3>
+
+<p>如果要標記一小段行內程式碼，你可以用反引號把它包起來（<code>`</code>），例如：</p>
+<pre><code>Use the `printf()` function.
+</code></pre>
+<p>會產生：</p>
+<pre><code>&lt;p&gt;Use the &lt;code&gt;printf()&lt;/code&gt; function.&lt;/p&gt;
+</code></pre>
+<p>如果要在程式碼區段內插入反引號，你可以用多個反引號來開啟和結束程式碼區段：</p>
+<pre><code>``There is a literal backtick (`) here.``
+</code></pre>
+<p>這段語法會產生：</p>
+<pre><code>&lt;p&gt;&lt;code&gt;There is a literal backtick (`) here.&lt;/code&gt;&lt;/p&gt;
+</code></pre>
+<p>程式碼區段的起始和結束端都可以放入一個空白，起始端後面一個，結束端前面一個，這樣你就可以在區段的一開始就插入反引號：</p>
+<pre><code>A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+</code></pre>
+<p>會產生：</p>
+<pre><code>&lt;p&gt;A single backtick in a code span: &lt;code&gt;`&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;A backtick-delimited string in a code span: &lt;code&gt;`foo`&lt;/code&gt;&lt;/p&gt;
+</code></pre>
+<p>在程式碼區段內，<code>&amp;</code> 和方括號都會被轉成 HTML 實體，這樣會比較容易插入 HTML 原始碼，Markdown 會把下面這段：</p>
+<pre><code>Please don&#39;t use any `&lt;blink&gt;` tags.
+</code></pre>
+<p>轉為：</p>
+<pre><code>&lt;p&gt;Please don&#39;t use any &lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tags.&lt;/p&gt;
+</code></pre>
+<p>你也可以這樣寫：</p>
+<pre><code>`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.
+</code></pre>
+<p>以產生：</p>
+<pre><code>&lt;p&gt;&lt;code&gt;&amp;amp;#8212;&lt;/code&gt; is the decimal-encoded
+equivalent of &lt;code&gt;&amp;amp;mdash;&lt;/code&gt;.&lt;/p&gt;
+</code></pre>
+<h3 id="img">圖片</h3>
+
+<p>很明顯地，要在純文字應用中設計一個 「自然」的語法來插入圖片是有一定難度的。</p>
+<p>Markdown 使用一種和連結很相似的語法來標記圖片，同樣也允許兩種樣式： <em>行內</em>和<em>參考</em>。</p>
+<p>行內圖片的語法看起來像是：</p>
+<pre><code>![Alt text](/path/to/img.jpg)
+
+![Alt text](/path/to/img.jpg &quot;Optional title&quot;)
+</code></pre>
+<p>詳細敘述如下：</p>
+<ul>
+<li>一個驚嘆號 <code>!</code></li>
+<li>接著一對方括號，裡面放上圖片的替代文字</li>
+<li>接著一對普通括號，裡面放上圖片的網址，最後還可以用引號包住並加上<br>選擇性的 ‘title’ 文字。</li>
+</ul>
+<p>參考式的圖片語法則長得像這樣：</p>
+<pre><code>![Alt text][id]
+</code></pre>
+<p>「id」是圖片參考的名稱，圖片參考的定義方式則和連結參考一樣：</p>
+<pre><code>[id]: url/to/image  &quot;Optional title attribute&quot;
+</code></pre>
+<p>到目前為止， Markdown 還沒有辦法指定圖片的寬高，如果你需要的話，你可以使用普通的 <code>&lt;img&gt;</code> 標籤。</p>
+<hr>
+<h2 id="misc">其它</h2>
+
+<h3 id="autolink">自動連結</h3>
+
+<p>Markdown 支援比較簡短的自動連結形式來處理網址和電子郵件信箱，只要是用方括號包起來， Markdown 就會自動把它轉成連結，連結的文字就和連結位置一樣，例如：</p>
+<pre><code>&lt;http://example.com/&gt;
+</code></pre>
+<p>Markdown 會轉為：</p>
+<pre><code>&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;
+</code></pre>
+<p>自動的郵件連結也很類似，只是 Markdown 會先做一個編碼轉換的過程，把文字字元轉成 16 進位碼的 HTML 實體，這樣的格式可以混淆一些不好的信箱地址收集機器人，例如：</p>
+<pre><code>&lt;address@example.com&gt;
+</code></pre>
+<p>Markdown 會轉成：</p>
+<pre><code>&lt;a href=&quot;&amp;#x6D;&amp;#x61;i&amp;#x6C;&amp;#x74;&amp;#x6F;:&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;
+&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;
+&amp;#109;&quot;&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;
+&amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;
+</code></pre>
+<p>在瀏覽器裡面，這段字串會變成一個可以點擊的「<a href="mailto:&#x61;&#x64;&#100;&#114;&#101;&#115;&#x73;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x61;&#x64;&#100;&#114;&#101;&#115;&#x73;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;</a>」連結。</p>
+<p>（這種作法雖然可以混淆不少的機器人，但並無法全部擋下來，不過這樣也比什麼都不做好些。無論如何，公開你的信箱終究會引來廣告信件的。）</p>
+<h3 id="backslash">跳脫字元</h3>
+
+<p>Markdown 可以利用反斜線來插入一些在語法中有其它意義的符號，例如：如果你想要用星號加在文字旁邊的方式來做出強調效果（但不用 <code>&lt;em&gt;</code> 標籤），你可以在星號的前面加上反斜線：</p>
+<pre><code>\*literal asterisks\*
+</code></pre>
+<p>Markdown 支援在下面這些符號前面加上反斜線來幫助插入普通的符號：</p>
+<pre><code>\   反斜線
+`   反引號
+*   星號
+_   底線
+&#123;&#125;  大括號
+[]  方括號
+()  括號
+#   井字號
++	加號
+-	減號
+.   英文句點
+!   驚嘆號
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/05/markdown-syntax/" data-id="clymtehnq0002pxl4hrja3mz8" data-title="Markdown 文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hexo-install" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/04/hexo-install/" class="article-date">
+  <time class="dt-published" datetime="2024-07-04T03:41:58.000Z" itemprop="datePublished">2024-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/04/hexo-install/">Ubuntu 22.04 + Hexo 網誌框架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-安裝-Ubuntu-22-04-4-到-SSD"><a href="#1-安裝-Ubuntu-22-04-4-到-SSD" class="headerlink" title="1. 安裝 Ubuntu 22.04.4 到 SSD"></a>1. 安裝 Ubuntu 22.04.4 到 SSD</h2><p>可以到Ubuntu網站下載最新的版本<a target="_blank" rel="noopener" href="https://releases.ubuntu.com/jammy/">Ubuntu 22.04</a></p>
+<h2 id="2-更新到最新的版本"><a href="#2-更新到最新的版本" class="headerlink" title="2. 更新到最新的版本"></a>2. 更新到最新的版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安裝Chrome"><a href="#3-安裝Chrome" class="headerlink" title="3. 安裝Chrome"></a>3. 安裝Chrome</h2><h3 id="Download-Google-Chrome"><a href="#Download-Google-Chrome" class="headerlink" title="Download Google Chrome"></a>Download Google Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-Google-Chrome"><a href="#Install-Google-Chrome" class="headerlink" title="Install Google Chrome"></a>Install Google Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-安裝中文輸入法ibus-注音-倉頡"><a href="#4-安裝中文輸入法ibus-注音-倉頡" class="headerlink" title="4. 安裝中文輸入法ibus + 注音 倉頡"></a>4. 安裝中文輸入法ibus + 注音 倉頡</h2><h3 id="4-1-在以下位置加入中文字的支援"><a href="#4-1-在以下位置加入中文字的支援" class="headerlink" title="4.1 在以下位置加入中文字的支援"></a>4.1 在以下位置加入中文字的支援</h3><p>settings → region and language → manage installed language → install&#x2F;remove language → Chinese (traditional) checked</p>
+<h3 id="4-2-重新開機"><a href="#4-2-重新開機" class="headerlink" title="4.2 重新開機"></a>4.2 重新開機</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-增加輸入法-注音-倉頡"><a href="#4-3-增加輸入法-注音-倉頡" class="headerlink" title="4.3 增加輸入法 注音 倉頡"></a>4.3 增加輸入法 注音 倉頡</h3><p>settings →   keyboard → input sources + → Chinese(Cangjie5) &#x2F; Chinese(Chewing)</p>
+<h3 id="4-4-reboot"><a href="#4-4-reboot" class="headerlink" title="4.4 reboot"></a>4.4 reboot</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-安裝-Git"><a href="#5-安裝-Git" class="headerlink" title="5. 安裝 Git"></a>5. 安裝 Git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git-core</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-安裝-Node-js"><a href="#6-安裝-Node-js" class="headerlink" title="6. 安裝 Node.js"></a>6. 安裝 Node.js</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -y curl</span><br></pre></td></tr></table></figure>
+<p>  Download the Node.js setup script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh</span><br></pre></td></tr></table></figure>
+<p>  Run the Node.js setup script with sudo:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo -E bash nodesource_setup.sh</span><br></pre></td></tr></table></figure>
+<p>  Install Node.js:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
+<p>  Verify the installation:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-安裝Hexo"><a href="#7-安裝Hexo" class="headerlink" title="7. 安裝Hexo"></a>7. 安裝Hexo</h2><div class="video-container"><iframe src="https://www.youtube.com/embed/PsXWbI2Mqu0" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+
+<h3 id="安裝Hexo-的過程中出現EACCES-權限錯誤-修復該問題"><a href="#安裝Hexo-的過程中出現EACCES-權限錯誤-修復該問題" class="headerlink" title="安裝Hexo 的過程中出現EACCES 權限錯誤,修復該問題:"></a>安裝Hexo 的過程中出現EACCES 權限錯誤,修復該問題:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> ~/.npm-global</span><br><span class="line">$ npm config <span class="built_in">set</span> prefix <span class="string">&#x27;~/.npm-global&#x27;</span></span><br><span class="line">$ <span class="built_in">export</span> PATH=~/.npm-global/bin:<span class="variable">$PATH</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.profile</span><br><span class="line">$ npm install -g jshint</span><br></pre></td></tr></table></figure>
+<h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install </span><br></pre></td></tr></table></figure>
+<h3 id="啟動網誌"><a href="#啟動網誌" class="headerlink" title="啟動網誌"></a>啟動網誌</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server   //必需在網誌的路徑位置</span><br><span class="line">  INFO  Validating config</span><br><span class="line">  INFO  Start processing</span><br><span class="line">  INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<h2 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h2><p>一旦 Hexo 完成後，請執行下列指令，Hexo 會在指定資料夾中建立所有您需要的檔案。<br>如無法找到Hexo 請export PATH&#x3D;~&#x2F;.npm-global&#x2F;bin:$PATH</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>建立完成後，專案資料夾會有下列檔案：<br> .<br> ├── _config.yml 網站 配置 檔案，您可以在此配置大部分的設定。<br> ├── package.json 應用程式資料。<br> ├── scaffolds 鷹架 資料夾。當您建立新文章時，Hexo 會根據 scaffold 來建立檔案。<br> ├── source 原始檔案資料夾是放置內容的地方。<br> |   ├── _drafts<br> |   └── _posts<br> └── themes 主題 資料夾。Hexo 會根據主題來產生靜態檔案。</p>
+<h2 id="寫作"><a href="#寫作" class="headerlink" title="寫作"></a>寫作</h2><p>接下來，我們要在網誌中建立第一篇新文章，學習 new 指令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="你可以忘記的指令"><a href="#你可以忘記的指令" class="headerlink" title="你可以忘記的指令"></a>你可以忘記的指令</h2><p>你一定會想說標題明明就寫「不能忘記的 Hexo 指令」，怎麼馬上就出現可以忘記的指令？其實是因為這幾個指令通常你只會用一次，因此你真的可以忘記它的存在，如果需要時再來翻文件就好。</p>
+<p>而那幾個可以忘記的指令主要是 hexo init [資料夾名稱] 以及 hexo -v 這兩個指令，通常來講前者個指令只會在第一次建立時使用，而後者只有在確認版本或是出現 bug 需要回報報給官方時才會需要使用。</p>
+<h2 id="不能忘記的-Hexo-指令"><a href="#不能忘記的-Hexo-指令" class="headerlink" title="不能忘記的 Hexo 指令"></a>不能忘記的 Hexo 指令</h2><p>接下來講講重點不能忘記的 Hexo 指令有哪些</p>
+<p>hexo new ‘文章名稱’  新增文章<br>hexo generate  產生靜態檔案<br>hexo server  開啟模擬伺服器<br>hexo clean  清除暫存檔案<br>hexo deploy 部署靜態檔案<br>但是 Hexo 其實還有相當多的指令，舉凡還有 hexo list、hexo migrate 以及 hexo publish 等等，可是實際上常用的指令只有上面五個，因此這邊這五個指令會是非常的長使用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/04/hexo-install/" data-id="clymtehno0001pxl4cjv2e2yn" data-title="Ubuntu 22.04 + Hexo 網誌框架" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/03/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2024-07-03T05:44:47.975Z" itemprop="datePublished">2024-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/03/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/03/hello-world/" data-id="clymtehni0000pxl4gys14teg" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/07/12/python-pep8/">PEP 8 – Python 程式碼風格指南</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/05/troubleshooting/">Hexo 問題 troubleshooting</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/05/vscode/">VS Code</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/05/markdown-syntax/">Markdown 文件</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/04/hexo-install/">Ubuntu 22.04 + Hexo 網誌框架</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Robin Cheng<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
