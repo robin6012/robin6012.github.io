@@ -92,6 +92,9 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h1 id="註冊github"><a href="#註冊github" class="headerlink" title="註冊github"></a>註冊github</h1><p>1步驟註冊 GitHub 帳號<br>進入 GitHub 官方網站：<a target="_blank" rel="noopener" href="https://github.com/">github</a><br>點Sing up<br><img src="/2024/07/15/blog-github/github1.png"><br>輸入你的email,password,也可能要你做其他的驗證動作.<br><img src="/2024/07/15/blog-github/github2.png"><br>可以在你的email中找到github寄給你的信件<br><img src="/2024/07/15/blog-github/github_email.png"></p>
+<h2 id="新增儲存庫"><a href="#新增儲存庫" class="headerlink" title="新增儲存庫"></a>新增儲存庫</h2><p>如果你本身已經有 Github 帳號或是剛辦好的，那就可以新增儲存庫了。首先來到已經為登入狀態的 Github 任一頁面，右上角會有個「+」按鈕，按下去後會出現下拉式選單，點擊第一個「New repository」。</p>
+<h2 id="點擊新增儲存庫"><a href="#點擊新增儲存庫" class="headerlink" title="點擊新增儲存庫"></a>點擊新增儲存庫</h2><p>此時請在你的 Reponsitory name 輸入你的 Github Pages 子網域，而你的 Github Pages 格式就如同前面所敘述為「你的 Github 帳號.github.io」。而且一個帳號僅有一組子網域。</p>
+<h2 id="填寫網址"><a href="#填寫網址" class="headerlink" title="填寫網址"></a>填寫網址</h2><p>填寫完成往下滑按下「Create repository」後，如果看到以下畫面就代表成功囉！此時，右上角是否有看到一個 HTTPS 的網址？請將它複製起來，待會會用到。</p>
 <h1 id="本機設定git"><a href="#本機設定git" class="headerlink" title="本機設定git "></a>本機設定git </h1><h2 id="安裝git"><a href="#安裝git" class="headerlink" title="安裝git"></a>安裝git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install git-all</span><br><span class="line">$ git --version</span><br><span class="line">git version 2.34.1</span><br></pre></td></tr></table></figure>
 <p>安裝 Git 後首先應該做的事是設定使用者名稱及電子郵件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git config --global user.name <span class="string">&quot;user.name&quot;</span></span><br><span class="line">$ git config --global user.email user.email@example.com</span><br></pre></td></tr></table></figure>
@@ -158,7 +161,7 @@ Hi robin6012! You've successfully authenticated, but GitHub does not provide she
 <p>可以上傳你的BLOG了！！</p>
 <h1 id="One-command-deployment"><a href="#One-command-deployment" class="headerlink" title="One-command deployment"></a>One-command deployment</h1><ul>
 <li>安裝 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></li>
-<li>Add the following configurations to _config.yml, (remove existing lines if any).<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;project&gt;</span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span></span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure></li>
+<li>Add the following configurations to _config.yml, (remove existing lines if any).<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;project&gt;</span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io.git</span></span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure></li>
 <li>執行 hexo clean &amp;&amp; hexo deploy 。</li>
 <li>Check the webpage at username.github.io.</li>
 </ul>
@@ -166,7 +169,7 @@ Hi robin6012! You've successfully authenticated, but GitHub does not provide she
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/15/blog-github/" data-id="clyo7r0hd0000m3l4bs3lh9r9" data-title="hexo blog發佈到github上" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/15/blog-github/" data-id="clyo8ecx70000ukl4gemz62t7" data-title="hexo blog發佈到github上" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -494,7 +497,7 @@ class Test:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/python-pep8/" data-id="clyo7r0ho0004m3l4e9rt1krb" data-title="PEP 8 – Python 程式碼風格指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/12/python-pep8/" data-id="clyo8ecxi0004ukl47ad31vgc" data-title="PEP 8 – Python 程式碼風格指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -546,7 +549,7 @@ class Test:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/05/troubleshooting/" data-id="clyo7r0hp0005m3l46rfsh2sk" data-title="Hexo 問題 troubleshooting" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/05/troubleshooting/" data-id="clyo8ecxj0005ukl40fub5hcc" data-title="Hexo 問題 troubleshooting" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -597,7 +600,7 @@ class Test:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/05/vscode/" data-id="clyo7r0hq0006m3l41qpm3hz5" data-title="VS Code" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/05/vscode/" data-id="clyo8ecxk0006ukl43k1n4dyj" data-title="VS Code" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1167,7 +1170,7 @@ equivalent of &lt;code&gt;&amp;amp;mdash;&lt;/code&gt;.&lt;/p&gt;
 &amp;#109;&quot;&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;
 &amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;
 </code></pre>
-<p>在瀏覽器裡面，這段字串會變成一個可以點擊的「<a href="mailto:&#x61;&#x64;&#100;&#x72;&#x65;&#x73;&#115;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x61;&#x64;&#100;&#x72;&#x65;&#x73;&#115;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;</a>」連結。</p>
+<p>在瀏覽器裡面，這段字串會變成一個可以點擊的「<a href="mailto:&#x61;&#100;&#x64;&#114;&#x65;&#115;&#x73;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">&#x61;&#100;&#x64;&#114;&#x65;&#115;&#x73;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a>」連結。</p>
 <p>（這種作法雖然可以混淆不少的機器人，但並無法全部擋下來，不過這樣也比什麼都不做好些。無論如何，公開你的信箱終究會引來廣告信件的。）</p>
 <h3 id="backslash">跳脫字元</h3>
 
@@ -1192,7 +1195,7 @@ _   底線
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/05/markdown-syntax/" data-id="clyo7r0hn0003m3l44l0i5b1v" data-title="Markdown 文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/05/markdown-syntax/" data-id="clyo8ecxh0003ukl45ujng0r5" data-title="Markdown 文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1270,7 +1273,7 @@ _   底線
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/04/hexo-install/" data-id="clyo7r0hl0002m3l4e6r8eq5s" data-title="Ubuntu 22.04 + Hexo 網誌框架" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/04/hexo-install/" data-id="clyo8ecxg0002ukl4cux6932v" data-title="Ubuntu 22.04 + Hexo 網誌框架" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1321,7 +1324,7 @@ _   底線
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/03/hello-world/" data-id="clyo7r0hj0001m3l4doel0jo6" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/03/hello-world/" data-id="clyo8ecxd0001ukl4djas2f03" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
