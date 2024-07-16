@@ -69,6 +69,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-blog-github" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/15/blog-github/" class="article-date">
+  <time class="dt-published" datetime="2024-07-15T10:12:57.000Z" itemprop="datePublished">2024-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/07/15/blog-github/">hexo blog發佈到github上</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="註冊github"><a href="#註冊github" class="headerlink" title="註冊github"></a>註冊github</h1><p>1步驟註冊 GitHub 帳號<br>進入 GitHub 官方網站：<a target="_blank" rel="noopener" href="https://github.com/">github</a><br>點Sing up<br><img src="/2024/07/15/blog-github/github1.png"><br>輸入你的email,password,也可能要你做其他的驗證動作.<br><img src="/2024/07/15/blog-github/github2.png"><br>可以在你的email中找到github寄給你的信件<br><img src="/2024/07/15/blog-github/github_email.png"></p>
+<h1 id="本機設定git"><a href="#本機設定git" class="headerlink" title="本機設定git "></a>本機設定git </h1><h2 id="安裝git"><a href="#安裝git" class="headerlink" title="安裝git"></a>安裝git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install git-all</span><br><span class="line">$ git --version</span><br><span class="line">git version 2.34.1</span><br></pre></td></tr></table></figure>
+<p>安裝 Git 後首先應該做的事是設定使用者名稱及電子郵件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git config --global user.name <span class="string">&quot;user.name&quot;</span></span><br><span class="line">$ git config --global user.email user.email@example.com</span><br></pre></td></tr></table></figure>
+<p>顥示目前的設定值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git config --list</span><br><span class="line">user.email=user.email@example.com</span><br><span class="line">user.name=ruser.name</span><br><span class="line">core.repositoryformatversion=0</span><br><span class="line">core.filemode=<span class="literal">true</span></span><br><span class="line">core.bare=<span class="literal">false</span></span><br><span class="line">core.logallrefupdates=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="設定了github-ssh"><a href="#設定了github-ssh" class="headerlink" title="設定了github ssh"></a>設定了github ssh</h1><p>設定 Github SSH 連線，首先會使用 ssh-keygen 產生 publich key，然後在到 Github SSH and GPG keys 中設定金鑰，就完成連線設定囉！</p>
+<p>檢測目前與 Github 的 SSH 連線狀況</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用ssh-keygen產生publich-key"><a href="#使用ssh-keygen產生publich-key" class="headerlink" title="使用ssh-keygen產生publich key"></a>使用ssh-keygen產生publich key</h2><p>在終端機輸入 ssh-keygen，可用來生成 SSH 公鑰匙和私鑰匙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ ssh-keygen -t ed25519 -C <span class="string">&quot;user.email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<!--
+~$ ssh-keygen -t ed25519 -C "robin99cheng@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/robin/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/robin/.ssh/id_ed25519
+Your public key has been saved in /home/robin/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:D3w4o/tNZPaoWbI3e8RvNOesoaCOqsQiUsMf+rRZ4iY robin99cheng@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+|                 |
+|                 |
+|                 |
+| .     . .       |
+|  + .   S =.     |
+| o + . . X oo o .|
+|+ + + o . *..o.= |
+|ooE+.= o Xo...o.o|
+|  .+*.ooB.o+.... |
++----[SHA256]-----+
+-->
+
+<p>接下來 cd 到 ~&#x2F;.ssh 看到剛剛產生的兩個金鑰囉，就代表建立成功！</p>
+<p>id_ed25519.pub：公開金鑰<br>id_ed25519：私密金鑰 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">~/.ssh$ <span class="built_in">ls</span></span><br><span class="line">id_ed25519 id_ed25519.pub</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我們用 cat 指令顯示剛剛建立的公鑰，並且複製起來</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> id_ed25519.pub</span><br></pre></td></tr></table></figure>
+
+<h2 id="將publish-key貼到Github上"><a href="#將publish-key貼到Github上" class="headerlink" title="將publish key貼到Github上"></a>將publish key貼到Github上</h2><p>來到 Github 的設定頁面，<a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a> ，點擊新增 New SSH key，再把剛剛的公鑰全部複製貼上去就完成囉<br><img src="/2024/07/15/blog-github/github_sshkey.png"><br>完成後可以在頁面上看到完成的內容<br><img src="/2024/07/15/blog-github/github_blog_sshkey.png"></p>
+<h2 id="再測試一次-Github-SSH-連線"><a href="#再測試一次-Github-SSH-連線" class="headerlink" title="再測試一次 Github SSH 連線"></a>再測試一次 Github SSH 連線</h2><p>增加設定檔~&#x2F;.ssh&#x2F;config</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~$ gedit ~/.ssh/config</span><br></pre></td></tr></table></figure>
+<p>設定檔的內容如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line"> Hostname ssh.github.com</span><br><span class="line"> Port <span class="number">443</span></span><br></pre></td></tr></table></figure>
+<p>可以得到以下訊息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">~$ ssh -T git@github.com</span><br><span class="line">The authenticity of host <span class="string">&#x27;[ssh.github.com]:443 ([20.27.177.118]:443)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">ED25519 key fingerprint is SHA256:------------------------------------------.</span></span><br><span class="line"><span class="string">This key is not known by any other names</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span></span><br><span class="line"><span class="string">Warning: Permanently added &#x27;</span>[ssh.github.com]:443<span class="string">&#x27; (ED25519) to the list of known hosts.</span></span><br><span class="line"><span class="string">Hi user.name! You&#x27;</span>ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
+
+<!--
+~$ ssh -T git@github.com
+The authenticity of host '[ssh.github.com]:443 ([20.27.177.118]:443)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[ssh.github.com]:443' (ED25519) to the list of known hosts.
+Hi robin6012! You've successfully authenticated, but GitHub does not provide shell access.
+-->
+
+<p>可以上傳你的BLOG了！！</p>
+<h1 id="One-command-deployment"><a href="#One-command-deployment" class="headerlink" title="One-command deployment"></a>One-command deployment</h1><ul>
+<li>安裝 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></li>
+<li>Add the following configurations to _config.yml, (remove existing lines if any).<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;project&gt;</span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span></span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure></li>
+<li>執行 hexo clean &amp;&amp; hexo deploy 。</li>
+<li>Check the webpage at username.github.io.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/15/blog-github/" data-id="clyo74oxu00008rl4c33tb5nh" data-title="hexo blog發佈到github上" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-python-pep8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/07/12/python-pep8/" class="article-date">
@@ -385,7 +494,7 @@ class Test:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/12/python-pep8/" data-id="clymtehns0004pxl4hgj03onk" data-title="PEP 8 – Python 程式碼風格指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/12/python-pep8/" data-id="clyo74oy500048rl42kjhfunx" data-title="PEP 8 – Python 程式碼風格指南" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -437,7 +546,7 @@ class Test:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/05/troubleshooting/" data-id="clymtehnr0003pxl4fqli6goj" data-title="Hexo 問題 troubleshooting" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/05/troubleshooting/" data-id="clyo74oy600058rl47bzhdrll" data-title="Hexo 問題 troubleshooting" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -488,7 +597,7 @@ class Test:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/05/vscode/" data-id="clymtehnt0005pxl44jt06xhc" data-title="VS Code" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/05/vscode/" data-id="clyo74oy700068rl4fb5jaj1b" data-title="VS Code" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1058,7 +1167,7 @@ equivalent of &lt;code&gt;&amp;amp;mdash;&lt;/code&gt;.&lt;/p&gt;
 &amp;#109;&quot;&gt;&amp;#x61;&amp;#x64;&amp;#x64;&amp;#x72;&amp;#x65;&amp;#115;&amp;#115;&amp;#64;&amp;#101;&amp;#120;&amp;#x61;
 &amp;#109;&amp;#x70;&amp;#x6C;e&amp;#x2E;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;
 </code></pre>
-<p>在瀏覽器裡面，這段字串會變成一個可以點擊的「<a href="mailto:&#x61;&#x64;&#100;&#114;&#101;&#115;&#x73;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x61;&#x64;&#100;&#114;&#101;&#115;&#x73;&#x40;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;</a>」連結。</p>
+<p>在瀏覽器裡面，這段字串會變成一個可以點擊的「<a href="mailto:&#97;&#x64;&#100;&#x72;&#x65;&#115;&#x73;&#x40;&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#109;">&#97;&#x64;&#100;&#x72;&#x65;&#115;&#x73;&#x40;&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#109;</a>」連結。</p>
 <p>（這種作法雖然可以混淆不少的機器人，但並無法全部擋下來，不過這樣也比什麼都不做好些。無論如何，公開你的信箱終究會引來廣告信件的。）</p>
 <h3 id="backslash">跳脫字元</h3>
 
@@ -1083,7 +1192,7 @@ _   底線
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/05/markdown-syntax/" data-id="clymtehnq0002pxl4hrja3mz8" data-title="Markdown 文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/05/markdown-syntax/" data-id="clyo74oy400038rl4fr96afix" data-title="Markdown 文件" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1161,7 +1270,7 @@ _   底線
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/04/hexo-install/" data-id="clymtehno0001pxl4cjv2e2yn" data-title="Ubuntu 22.04 + Hexo 網誌框架" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/04/hexo-install/" data-id="clyo74oy300028rl48nuqgyca" data-title="Ubuntu 22.04 + Hexo 網誌框架" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1212,7 +1321,7 @@ _   底線
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/07/03/hello-world/" data-id="clymtehni0000pxl4gys14teg" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/07/03/hello-world/" data-id="clyo74oy000018rl4fsomc027" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -1255,6 +1364,10 @@ _   底線
       <ul>
         
           <li>
+            <a href="/2024/07/15/blog-github/">hexo blog發佈到github上</a>
+          </li>
+        
+          <li>
             <a href="/2024/07/12/python-pep8/">PEP 8 – Python 程式碼風格指南</a>
           </li>
         
@@ -1268,10 +1381,6 @@ _   底線
         
           <li>
             <a href="/2024/07/05/markdown-syntax/">Markdown 文件</a>
-          </li>
-        
-          <li>
-            <a href="/2024/07/04/hexo-install/">Ubuntu 22.04 + Hexo 網誌框架</a>
           </li>
         
       </ul>
