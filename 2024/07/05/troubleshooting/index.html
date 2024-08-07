@@ -17,20 +17,22 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="安裝Hexo時發生的問題如何新增圖片 在_config.yml中加入以下的內容,post_asset_folder: false 改成true 1234post_asset_folder: truemarked:  prependRoot: true  postAsset: true  重新開啟Hexo 1hexo server  在新增blog “文章“ 時會在blog&#x2F;source&#x2F;_post">
+  <meta name="description" content="如何新增圖片 在_config.yml中加入以下的內容,post_asset_folder: false 改成true  1234post_asset_folder: truemarked:  prependRoot: true  postAsset: true   重新開啟Hexo  1hexo server   在新增blog “文章“ 時會在blog&#x2F;source&#x2F;_posts&#x2F;加入”文章.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 問題 troubleshooting">
+<meta property="og:title" content="Hexo 常見問題">
 <meta property="og:url" content="http://example.com/2024/07/05/troubleshooting/index.html">
 <meta property="og:site_name" content="Robin blog">
-<meta property="og:description" content="安裝Hexo時發生的問題如何新增圖片 在_config.yml中加入以下的內容,post_asset_folder: false 改成true 1234post_asset_folder: truemarked:  prependRoot: true  postAsset: true  重新開啟Hexo 1hexo server  在新增blog “文章“ 時會在blog&#x2F;source&#x2F;_post">
+<meta property="og:description" content="如何新增圖片 在_config.yml中加入以下的內容,post_asset_folder: false 改成true  1234post_asset_folder: truemarked:  prependRoot: true  postAsset: true   重新開啟Hexo  1hexo server   在新增blog “文章“ 時會在blog&#x2F;source&#x2F;_posts&#x2F;加入”文章.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2024/07/05/troubleshooting/code_view.png">
 <meta property="article:published_time" content="2024-07-05T05:55:20.000Z">
-<meta property="article:modified_time" content="2024-07-05T06:21:10.730Z">
+<meta property="article:modified_time" content="2024-07-18T09:16:22.984Z">
 <meta property="article:author" content="Robin Cheng">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/07/05/troubleshooting/code_view.png">
 
 <link rel="canonical" href="http://example.com/2024/07/05/troubleshooting/">
 
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>Hexo 問題 troubleshooting | Robin blog</title>
+  <title>Hexo 常見問題 | Robin blog</title>
   
 
 
@@ -163,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo 問題 troubleshooting
+          Hexo 常見問題
         </h1>
 
         <div class="post-meta">
@@ -172,10 +174,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-07-05 13:55:20 / Modified: 14:21:10" itemprop="dateCreated datePublished" datetime="2024-07-05T13:55:20+08:00">2024-07-05</time>
+              <time title="Created: 2024-07-05 13:55:20" itemprop="dateCreated datePublished" datetime="2024-07-05T13:55:20+08:00">2024-07-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-07-18 17:16:22" itemprop="dateModified" datetime="2024-07-18T17:16:22+08:00">2024-07-18</time>
+              </span>
 
           
 
@@ -188,20 +196,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="安裝Hexo時發生的問題"><a href="#安裝Hexo時發生的問題" class="headerlink" title="安裝Hexo時發生的問題"></a>安裝Hexo時發生的問題</h1><h2 id="如何新增圖片"><a href="#如何新增圖片" class="headerlink" title="如何新增圖片"></a>如何新增圖片</h2><ul>
-<li><p>在_config.yml中加入以下的內容,post_asset_folder: <code>false</code> 改成<code>true</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br><span class="line">marked:</span><br><span class="line">  prependRoot: <span class="literal">true</span></span><br><span class="line">  postAsset: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新開啟Hexo</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在新增blog “文章“ 時會在<code>blog/source/_posts/</code>加入”文章.md”和“文章”的路徑，在“文章”的路徑中加入你的圖片就可以了.</p>
-</li>
-<li><p>在文章之中要加圖片指令如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](/path/to/img.jpg <span class="string">&quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>可以在文章之中看到圖片，可是在server中還是會說沒有找到。</p>
-</li>
+        <h2 id="如何新增圖片"><a href="#如何新增圖片" class="headerlink" title="如何新增圖片"></a>如何新增圖片</h2><ul>
+<li>在_config.yml中加入以下的內容,post_asset_folder: <code>false</code> 改成<code>true</code></li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br><span class="line">marked:</span><br><span class="line">  prependRoot: <span class="literal">true</span></span><br><span class="line">  postAsset: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重新開啟Hexo</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在新增blog “文章“ 時會在<code>blog/source/_posts/</code>加入”文章.md”和“文章”的路徑，在“文章”的路徑中加入你的圖片就可以了.</li>
+<li>在文章之中要加圖片指令如下：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](/path/to/img.jpg <span class="string">&quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>可以在文章之中看到圖片，可是在server中還是會說沒有找到.</p>
+<h2 id="快速生成模板"><a href="#快速生成模板" class="headerlink" title="快速生成模板"></a>快速生成模板</h2><p>在前面有提到我們可以透過 description 的標籤來生成 more 的按鈕，但是在預設 hexo new 一篇文章時，預設模板都是以下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: <span class="built_in">test</span></span><br><span class="line"><span class="built_in">date</span>: 2020-09-18 21:49:50</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>因此每次我們撰寫文章的時候就必須再一次填寫 description ，如何將 description 加入到預設生成的模板內。</p>
+<p>在 Hexo 專案底下有一個 scaffolds 資料夾，這裡分別有 post.md、page.md 以及 draft.md 這三個檔案，這三個檔案就是預設的模板，而分別個別對應的指令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new -&gt; post.md</span><br><span class="line">hexo new page -&gt; page.md</span><br><span class="line">hexo new draft -&gt; darft.md</span><br></pre></td></tr></table></figure>
+
+<p>通常 page.md 與 darft.md 是不太會去更動的設定，最主要會調整的是 post.md 這檔案,只需要將你希望填入的欄位寫入到 post.md 就可以了.</p>
+<p>而範本的話，則會像下面這樣</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line"><span class="built_in">date</span>: &#123;&#123; <span class="built_in">date</span> &#125;&#125;</span><br><span class="line">tags:</span><br><span class="line">description:</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">## 前言</span></span><br></pre></td></tr></table></figure>
+
+<p>在此可以連「前言」都預先打好,畢竟這是寫文章固定的開頭,所以就先打起來放沒差.</p>
+<h2 id="markdownlint"><a href="#markdownlint" class="headerlink" title="markdownlint"></a>markdownlint</h2><p>使用 VSCode 撰寫文章有一個套件叫做 「markdownlint」！</p>
+<p>透過套件來閱數自己 md 每一篇的風格以及提醒自己程式碼區塊一定要補上程式碼語言等等良好的習慣，因此在此也推薦給各位。</p>
+<p>下載連結：<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint</a></p>
+<h2 id="VSCode-即時預覽"><a href="#VSCode-即時預覽" class="headerlink" title="VSCode 即時預覽"></a>VSCode 即時預覽</h2><p>有時候我們不會開啟 hexo s 模擬伺服器來看當前文章寫的狀況，但我們又會希望文章可以所見即所得，所以這時候你只要點一下以下圖片箭頭所指處</p>
+<p><img src="/2024/07/05/troubleshooting/code_view.png" alt="code view"></p>
+<p>當你點了之後 VSCode 右側就會開啟所見即所得</p>
+<h2 id="想刪除文章"><a href="#想刪除文章" class="headerlink" title="想刪除文章"></a>想刪除文章</h2><p>刪除文章的方式，刪除 .md 檔案並重新部署就好，也可以將文章改放到 _drafts 資料夾也可以。</p>
 
     </div>
 
@@ -282,7 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DHexo%E6%99%82%E7%99%BC%E7%94%9F%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">安裝Hexo時發生的問題</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%96%B0%E5%A2%9E%E5%9C%96%E7%89%87"><span class="nav-number">1.1.</span> <span class="nav-text">如何新增圖片</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%96%B0%E5%A2%9E%E5%9C%96%E7%89%87"><span class="nav-number">1.</span> <span class="nav-text">如何新增圖片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">快速生成模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#markdownlint"><span class="nav-number">3.</span> <span class="nav-text">markdownlint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VSCode-%E5%8D%B3%E6%99%82%E9%A0%90%E8%A6%BD"><span class="nav-number">4.</span> <span class="nav-text">VSCode 即時預覽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%83%B3%E5%88%AA%E9%99%A4%E6%96%87%E7%AB%A0"><span class="nav-number">5.</span> <span class="nav-text">想刪除文章</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -296,9 +326,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -330,7 +364,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Robin Cheng</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
         
@@ -356,7 +390,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>

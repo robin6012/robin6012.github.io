@@ -17,18 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1. 安裝 Ubuntu 22.04.4 到 SSD可以到Ubuntu網站下載最新的版本Ubuntu 22.04 2. 更新到最新的版本1$ sudo apt update  3. 安裝ChromeDownload Google Chrome1$ wget https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;direct&#x2F;google-chrome-stable_current_amd64.d">
+  <meta name="description" content="1. 安裝 Ubuntu 22.04.4 到 SSD可以到Ubuntu網站下載最新的版本Ubuntu 22.04 2. 更新到最新的版本1sudo apt update  3. 安裝ChromeDownload Google Chrome1wget https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;direct&#x2F;google-chrome-stable_current_amd64.deb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 22.04 + Hexo 網誌框架">
 <meta property="og:url" content="http://example.com/2024/07/04/hexo-install/index.html">
 <meta property="og:site_name" content="Robin blog">
-<meta property="og:description" content="1. 安裝 Ubuntu 22.04.4 到 SSD可以到Ubuntu網站下載最新的版本Ubuntu 22.04 2. 更新到最新的版本1$ sudo apt update  3. 安裝ChromeDownload Google Chrome1$ wget https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;direct&#x2F;google-chrome-stable_current_amd64.d">
+<meta property="og:description" content="1. 安裝 Ubuntu 22.04.4 到 SSD可以到Ubuntu網站下載最新的版本Ubuntu 22.04 2. 更新到最新的版本1sudo apt update  3. 安裝ChromeDownload Google Chrome1wget https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;direct&#x2F;google-chrome-stable_current_amd64.deb">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-04T03:41:58.000Z">
-<meta property="article:modified_time" content="2024-07-15T02:00:02.069Z">
+<meta property="article:modified_time" content="2024-07-18T06:51:32.189Z">
 <meta property="article:author" content="Robin Cheng">
 <meta name="twitter:card" content="summary">
 
@@ -180,7 +180,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-15 10:00:02" itemprop="dateModified" datetime="2024-07-15T10:00:02+08:00">2024-07-15</time>
+                <time title="Modified: 2024-07-18 14:51:32" itemprop="dateModified" datetime="2024-07-18T14:51:32+08:00">2024-07-18</time>
               </span>
 
           
@@ -195,40 +195,52 @@
 
       
         <h2 id="1-安裝-Ubuntu-22-04-4-到-SSD"><a href="#1-安裝-Ubuntu-22-04-4-到-SSD" class="headerlink" title="1. 安裝 Ubuntu 22.04.4 到 SSD"></a>1. 安裝 Ubuntu 22.04.4 到 SSD</h2><p>可以到Ubuntu網站下載最新的版本<a target="_blank" rel="noopener" href="https://releases.ubuntu.com/jammy/">Ubuntu 22.04</a></p>
-<h2 id="2-更新到最新的版本"><a href="#2-更新到最新的版本" class="headerlink" title="2. 更新到最新的版本"></a>2. 更新到最新的版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br></pre></td></tr></table></figure>
+<h2 id="2-更新到最新的版本"><a href="#2-更新到最新的版本" class="headerlink" title="2. 更新到最新的版本"></a>2. 更新到最新的版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-安裝Chrome"><a href="#3-安裝Chrome" class="headerlink" title="3. 安裝Chrome"></a>3. 安裝Chrome</h2><h3 id="Download-Google-Chrome"><a href="#Download-Google-Chrome" class="headerlink" title="Download Google Chrome"></a>Download Google Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+<h2 id="3-安裝Chrome"><a href="#3-安裝Chrome" class="headerlink" title="3. 安裝Chrome"></a>3. 安裝Chrome</h2><h3 id="Download-Google-Chrome"><a href="#Download-Google-Chrome" class="headerlink" title="Download Google Chrome"></a>Download Google Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
 
-<h3 id="Install-Google-Chrome"><a href="#Install-Google-Chrome" class="headerlink" title="Install Google Chrome"></a>Install Google Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
+<h3 id="Install-Google-Chrome"><a href="#Install-Google-Chrome" class="headerlink" title="Install Google Chrome"></a>Install Google Chrome</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i google-chrome-stable_current_amd64.deb</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-安裝中文輸入法ibus-注音-倉頡"><a href="#4-安裝中文輸入法ibus-注音-倉頡" class="headerlink" title="4. 安裝中文輸入法ibus + 注音 倉頡"></a>4. 安裝中文輸入法ibus + 注音 倉頡</h2><h3 id="4-1-在以下位置加入中文字的支援"><a href="#4-1-在以下位置加入中文字的支援" class="headerlink" title="4.1 在以下位置加入中文字的支援"></a>4.1 在以下位置加入中文字的支援</h3><p>settings → region and language → manage installed language → install&#x2F;remove language → Chinese (traditional) checked</p>
-<h3 id="4-2-重新開機"><a href="#4-2-重新開機" class="headerlink" title="4.2 重新開機"></a>4.2 重新開機</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-重新開機"><a href="#4-2-重新開機" class="headerlink" title="4.2 重新開機"></a>4.2 重新開機</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
 <h3 id="4-3-增加輸入法-注音-倉頡"><a href="#4-3-增加輸入法-注音-倉頡" class="headerlink" title="4.3 增加輸入法 注音 倉頡"></a>4.3 增加輸入法 注音 倉頡</h3><p>settings →   keyboard → input sources + → Chinese(Cangjie5) &#x2F; Chinese(Chewing)</p>
-<h3 id="4-4-reboot"><a href="#4-4-reboot" class="headerlink" title="4.4 reboot"></a>4.4 reboot</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
+<h3 id="4-4-reboot"><a href="#4-4-reboot" class="headerlink" title="4.4 reboot"></a>4.4 reboot</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-安裝-Git"><a href="#5-安裝-Git" class="headerlink" title="5. 安裝 Git"></a>5. 安裝 Git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git-core</span><br></pre></td></tr></table></figure>
+<h2 id="5-安裝-Git"><a href="#5-安裝-Git" class="headerlink" title="5. 安裝 Git"></a>5. 安裝 Git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git-core</span><br></pre></td></tr></table></figure>
 
-<h2 id="6-安裝-Node-js"><a href="#6-安裝-Node-js" class="headerlink" title="6. 安裝 Node.js"></a>6. 安裝 Node.js</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -y curl</span><br></pre></td></tr></table></figure>
-<p>  Download the Node.js setup script:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh</span><br></pre></td></tr></table></figure>
-<p>  Run the Node.js setup script with sudo:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo -E bash nodesource_setup.sh</span><br></pre></td></tr></table></figure>
-<p>  Install Node.js:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
-<p>  Verify the installation:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+<h2 id="6-安裝-Node-js"><a href="#6-安裝-Node-js" class="headerlink" title="6. 安裝 Node.js"></a>6. 安裝 Node.js</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y curl</span><br></pre></td></tr></table></figure>
+
+<p>Download the Node.js setup script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh</span><br></pre></td></tr></table></figure>
+
+<p>Run the Node.js setup script with sudo:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -E bash nodesource_setup.sh</span><br></pre></td></tr></table></figure>
+
+<p>Install Node.js:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
+
+<p>Verify the installation:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
 
 <h2 id="7-安裝Hexo"><a href="#7-安裝Hexo" class="headerlink" title="7. 安裝Hexo"></a>7. 安裝Hexo</h2><div class="video-container"><iframe src="https://www.youtube.com/embed/PsXWbI2Mqu0" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
 
-<h3 id="安裝Hexo-的過程中出現EACCES-權限錯誤-修復該問題"><a href="#安裝Hexo-的過程中出現EACCES-權限錯誤-修復該問題" class="headerlink" title="安裝Hexo 的過程中出現EACCES 權限錯誤,修復該問題:"></a>安裝Hexo 的過程中出現EACCES 權限錯誤,修復該問題:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> ~/.npm-global</span><br><span class="line">$ npm config <span class="built_in">set</span> prefix <span class="string">&#x27;~/.npm-global&#x27;</span></span><br><span class="line">$ <span class="built_in">export</span> PATH=~/.npm-global/bin:<span class="variable">$PATH</span></span><br><span class="line">$ <span class="built_in">source</span> ~/.profile</span><br><span class="line">$ npm install -g jshint</span><br></pre></td></tr></table></figure>
-<h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install </span><br></pre></td></tr></table></figure>
-<h3 id="啟動網誌"><a href="#啟動網誌" class="headerlink" title="啟動網誌"></a>啟動網誌</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server   //必需在網誌的路徑位置</span><br><span class="line">  INFO  Validating config</span><br><span class="line">  INFO  Start processing</span><br><span class="line">  INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<h3 id="安裝Hexo-的過程中出現EACCES-權限錯誤-修復該問題"><a href="#安裝Hexo-的過程中出現EACCES-權限錯誤-修復該問題" class="headerlink" title="安裝Hexo 的過程中出現EACCES 權限錯誤,修復該問題:"></a>安裝Hexo 的過程中出現EACCES 權限錯誤,修復該問題:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.npm-global</span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&#x27;~/.npm-global&#x27;</span></span><br><span class="line"><span class="built_in">export</span> PATH=~/.npm-global/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line">npm install -g jshint</span><br></pre></td></tr></table></figure>
+
+<h3 id="安裝Hexo"><a href="#安裝Hexo" class="headerlink" title="安裝Hexo"></a>安裝Hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install </span><br></pre></td></tr></table></figure>
+
+<h3 id="啟動網誌"><a href="#啟動網誌" class="headerlink" title="啟動網誌"></a>啟動網誌</h3><p>以下指令必需在網誌的路徑位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server   </span><br><span class="line">  INFO  Validating config</span><br><span class="line">  INFO  Start processing</span><br><span class="line">  INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>如沒有找到可能是沒有找到<code>.npm-global</code>,加入以下指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=~/.npm-global/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h2><p>一旦 Hexo 完成後，請執行下列指令，Hexo 會在指定資料夾中建立所有您需要的檔案。<br>如無法找到Hexo 請export PATH&#x3D;~&#x2F;.npm-global&#x2F;bin:$PATH</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<p>建立完成後，專案資料夾會有下列檔案：<br> .<br> ├── _config.yml 網站 配置 檔案，您可以在此配置大部分的設定。<br> ├── package.json 應用程式資料。<br> ├── scaffolds 鷹架 資料夾。當您建立新文章時，Hexo 會根據 scaffold 來建立檔案。<br> ├── source 原始檔案資料夾是放置內容的地方。<br> |   ├── _drafts<br> |   └── _posts<br> └── themes 主題 資料夾。Hexo 會根據主題來產生靜態檔案。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>建立完成後，專案資料夾會有下列檔案：<br> .<br> ├── _config.yml 網站 配置 檔案，您可以在此配置大部分的設定。<br> ├── package.json 應用程式資料。<br> ├── scaffolds 鷹架 資料夾。當您建立新文章時，Hexo 會根據 scaffold 來建立檔案。<br> ├── source 原始檔案資料夾是放置內容的地方。<br> |   ├── drafts<br> |   └── _posts<br> └── themes 主題 資料夾。Hexo 會根據主題來產生靜態檔案。</p>
 <h2 id="寫作"><a href="#寫作" class="headerlink" title="寫作"></a>寫作</h2><p>接下來，我們要在網誌中建立第一篇新文章，學習 new 指令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="你可以忘記的指令"><a href="#你可以忘記的指令" class="headerlink" title="你可以忘記的指令"></a>你可以忘記的指令</h2><p>你一定會想說標題明明就寫「不能忘記的 Hexo 指令」，怎麼馬上就出現可以忘記的指令？其實是因為這幾個指令通常你只會用一次，因此你真的可以忘記它的存在，如果需要時再來翻文件就好。</p>
 <p>而那幾個可以忘記的指令主要是 hexo init [資料夾名稱] 以及 hexo -v 這兩個指令，通常來講前者個指令只會在第一次建立時使用，而後者只有在確認版本或是出現 bug 需要回報報給官方時才會需要使用。</p>
@@ -328,9 +340,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -362,7 +378,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Robin Cheng</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
         
@@ -388,7 +404,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
